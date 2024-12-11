@@ -1,0 +1,176 @@
+---
+import Img from "../../assets/Mid/robot.png";
+---
+
+<div class="mid">
+    <div class="mid__content">
+        <h1 class="mid__title">AUTÉNTICO SABOR <br /> <span class="mid__title--venezolan">VENEZOLANO</span></h1>
+        <p class="mid__content__txt">
+            <span>
+                Los restaurantes <b class="mid__content__txt--bold">The Cube</b>
+                son el lugar ideal para disfrutar de la auténtica comida venezolana
+                en Tarragona, con tres restaurantes que combinan tradición y sabor
+                en un ambiente acogedor.
+            </span>
+            <br />
+            <br />
+            <span>
+                Ofrecemos una amplia variedad de platos caseros, desde <b
+                    class="mid__content__txt--bold"
+                    >arepas hasta pabellón criollo, adaptándonos a todas las
+                    necesidades con opciones veganas, vegetarianas y sin gluten.</b
+                > Nuestras terrazas son perfectas para relajarte y disfrutar del
+                sol mientras saboreas lo mejor de Venezuela.
+            </span>
+            <br />
+            <br />
+            <span class="mid__content__txt--brown">
+                ¡Ven y vive una experiencia gastronómica única que te
+                transportará al corazón de nuestra cultura!
+            </span>
+        </p>
+    </div>
+    <img src={Img.src} class="mid__img" />
+</div>
+
+<style lang="scss">
+    .mid {
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        width: 75vw;
+        // background-color: #0f0;
+        transition: all 0.5s;
+        position: relative;
+        display: flex;
+        view-timeline-name: --image;
+        view-timeline-axis: inline;
+        animation-timeline: --image;
+        animation-name: fade-in;
+        animation-range: entry 0% cover 40%;
+
+        animation-fill-mode: both;
+
+        @keyframes fade-in {
+            from {
+                scale: 25%;
+                opacity: 0;
+            }
+            to {
+                scale: 100%;
+                opacity: 1;
+            }
+        }
+
+        &__img {
+            height: 70vh;
+            width: fit-content;
+            align-self: flex-end;
+            object-fit: contain;
+            position: relative;
+            left: 20px;
+            transition: all 0.5s;
+            view-timeline-name: --image;
+            view-timeline-axis: inline;
+            animation-timeline: --image;
+            animation-name: bottom-top;
+            animation-range: entry 00% cover 60%;
+
+            animation-fill-mode: both;
+
+            @keyframes bottom-top {
+                from {
+                    transform: translateY(20vh);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(00vh);
+                    opacity: 1;
+                }
+            }
+
+            &:hover {
+                scale: 1.1;
+                filter: drop-shadow(10px 10px 10px #000000);
+            }
+        }
+
+        &__title {
+            color: #603b2a;
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 80px;
+            line-height: 80px;
+
+            &--venezolan{
+                background-size: 300px 100px;
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_Miranda.svg/222px-Flag_of_Miranda.svg.png");
+            }
+        }
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 50px;
+            gap: 20px;
+            // background-color: #f0f;
+
+            &__txt {
+                width: 40vw;
+                font-family: "Abel", sans-serif;
+                font-size: 20px;
+
+                &--bold {
+                    font-family: "Poppins", sans-serif;
+                }
+
+                &--brown {
+                    color: #603b2a;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 900px) {
+        .mid {
+            &__img {
+                margin-right: 250px;
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1600px) {
+        .mid {
+            &__img {
+                left: -100px;
+                // background-color: #ff0;
+            }
+
+            &__title {
+                font-size: 162px;
+                line-height: 162px;
+            }
+
+            &__content {
+                &__img {
+                    width: 370px;
+                    height: 500px;
+                }
+
+                &__txt {
+                    width: 40vw;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    font-size: 22px;
+                    &--brown {
+                        font-size: 38px;
+                    }
+                }
+            }
+        }
+    }
+</style>

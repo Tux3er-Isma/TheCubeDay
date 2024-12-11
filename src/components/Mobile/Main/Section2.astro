@@ -1,0 +1,80 @@
+---
+import Img1 from "../../../assets/Restaurants/r-2/img-1.png";
+import Img2 from "../../../assets/Aside/img-2.png";
+---
+
+<section class="section" id="n">
+    <h1 class="section__title">NUESTRA<br /> HISTORIA</h1>
+    <p class="section__content__txt">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.<br /><br /> Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+        ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+        est laborum."
+    </p>
+    <div class="section__content">
+        <img src={Img2.src} class="section__img" />
+        <img src={Img1.src} class="section__content__img" />
+    </div>
+</section>
+
+<style lang="scss">
+    .section {
+        width: 100vw;
+
+        &__title {
+            color: #603b2a;
+            font-size: 100px;
+            font-family: "Antonio Variable";
+            width: 100%;
+            position: relative;
+            left: 40px;
+        }
+
+        &__content {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            height: 10%;
+
+            &__txt {
+                display: flex;
+                width: 80%;
+                font-size: 16px;
+                position: relative;
+                left: 40px;
+                margin-bottom: 50px;
+            }
+
+            &__img {
+                width: 80%;
+                height: 400px;
+                object-fit: cover;
+                border-radius: 43px;
+                transform: translateX(50%);
+            }
+        }
+
+        &__img {
+            width: 100%;
+            position: absolute;
+            transform: rotate(90deg);
+            left: -50%;
+            height: 400px;
+            object-fit: contain;
+        }
+    }
+
+    @media only screen and (max-width: 320px){
+        .section{
+
+            &__title{
+                font-size: 80px;
+                width: fit-content;
+                display: inline-block;
+            }
+        }
+    }
+</style>

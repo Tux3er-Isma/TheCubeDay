@@ -1,0 +1,124 @@
+---
+import Img1 from "../../../assets/Main/Img3.png"
+import Img2 from "../../../assets/Main/Img2.png"
+import Img3 from "../../../assets/Main/Img1.png"
+import Img4 from "../../../assets/Main/Img4.png"
+---
+
+<section class="section" id="c">
+    <article class="section__article section__article--1">
+        <h1 class="section__article__title">LA CARTA.</h1>
+        <h2 class="section__article__subtitle">AREPAS, BRAVAS Y SALCHIPAPAS CON SUS<br> TOPPINGS, APERITIVOS VENEZOLANOS...</h2>
+    </article>
+    <article class="section__article section__article--2">
+        <div class="section__article__part">
+            <img src={Img1.src} class="section__article__part__img" height="151">
+            <img src={Img2.src} class="section__article__part__img" height="293">
+        </div>
+        <div class="section__article__part">
+            <img src={Img3.src} class="section__article__part__img" height="277">
+            <img src={Img4.src} class="section__article__part__img" height="164">
+        </div>
+    </article>
+    <article class="section__article section__article--3">
+        <h1 class="section__article__title section__article__title--big">NUESTROS <span class="section__article__title section__article__title--big--color">Restaurantes </span></h1>
+        <h2 class="section__article__subtitle">AREPAS, BRAVAS Y SALCHIPAPAS CON SUS<br> TOPPINGS, APERITIVOS VENEZOLANOS...</h2>
+    </article>
+</section>
+
+<style lang="scss">
+    .section{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 50px;
+        view-timeline-name: --image;
+            view-timeline-axis: inline;
+            animation-timeline: --image;
+            animation-name: fade-in;
+            animation-range: entry 0% cover 40%;
+
+            animation-fill-mode: both;
+
+            @keyframes fade-in {
+                from {
+                    scale: 25%;
+                    opacity: 0;
+                }
+                to {
+                    scale: 100%;
+                    opacity: 1;
+                }
+            }
+
+
+        &__article{
+            margin-left: 20px;
+
+            &--2{
+                display: flex;
+                gap: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin-left: 0px;
+            }
+
+            &__title{
+                color: #714C3C;
+                font-family: 'Bebas Neue';
+                font-size: 87.7px;
+
+                &--big{
+                    font-family: 'Antonio', sans-serif;
+                    font-size: 60.15px;
+
+                    &--color{
+                        font-family: "Staatliches", system-ui;
+                        font-size: 52.13px;
+                    }
+                }
+            }
+
+            &__subtitle{
+                font-family: 'Abel', sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+            }
+
+            &__part{
+                gap: 10px;
+                display: flex;
+                flex-direction: column;
+
+                &__img{
+                    object-fit: cover;
+                    border: 5px solid #603B2A;
+                    width: 170px;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 320px){
+      .section{
+
+        &__article{
+
+            &__title{
+
+                &--big{
+                    font-size: 50px;
+                }
+            }
+
+            &__part{
+
+                &__img{
+                    width: 150px;
+                }
+            }
+        }
+      }  
+    }
+</style>

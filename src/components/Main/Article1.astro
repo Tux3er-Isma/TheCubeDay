@@ -1,0 +1,163 @@
+---
+import MiniImg from "../../assets/Main/interactive.png";
+---
+
+<article class="article">
+    <div class="article__title-container">
+        <h1 class="article__title-container__title">
+            <img src={MiniImg.src} class="article__title-container__title__img article__title-container__title__img--1">
+            <img src={MiniImg.src} class="article__title-container__title__img article__title-container__title__img--2">
+            <img src={MiniImg.src} class="article__title-container__title__img article__title-container__title__img--3">
+            <img src={MiniImg.src} class="article__title-container__title__img article__title-container__title__img--4">
+            <img src={MiniImg.src} class="article__title-container__title__img article__title-container__title__img--5">
+            <span
+                class="article__title-container__title__span article__title-container__title__span--1"
+            >LA CARTA</span><span
+                class="article__title-container__title__span article__title-container__title__span--2"
+            >LA CARTA</span>
+        </h1>
+        <h2 class="article__title-container__subtitle">
+            AREPAS, BRAVAS Y SALCHIPAPAS <br class="bd" /> CON <br
+                class="bm"
+            />SUS TOPPINGS, APERITIVOS
+            <br class="bd" /> VENEZOLANOS...
+        </h2>
+    </div>
+</article>
+
+<style lang="scss">
+    .article {
+        margin-left: 5vw;
+        width: 40vw;
+        // border: 2px solid tomato;
+        display: flex;
+        align-self: flex-start;
+        height: 100%;
+        padding-right: 3vw;
+        width: fit-content;
+        align-items: center;
+
+        &__title-container {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+            width: 457.5px;
+            view-timeline-name: --image;
+            view-timeline-axis: inline;
+            animation-timeline: --image;
+            animation-name: fade-in;
+            animation-range: entry 0% cover 40%;
+
+            animation-fill-mode: both;
+
+            @keyframes fade-in {
+                from {
+                    scale: 25%;
+                    opacity: 0;
+                }
+                to {
+                    scale: 100%;
+                    opacity: 1;
+                }
+            }
+
+            &__title {
+                line-height: 162px;
+                font-family: "Bebas Neue", sans-serif;
+                color: #603b2a;
+                font-size: 162px;
+                margin-bottom: 20px;
+                display: flex;
+                flex-direction: column;
+                width: 472px;
+                height: 152px;
+                overflow: hidden;
+                align-items: center;
+                cursor: pointer;
+
+                &__span{
+                    transition: all .3s;
+                    position: relative;
+                }
+
+                &:hover &__span--1{
+                    transform: translateY(-162px);
+                }
+
+                &:hover &__span--2{
+                    transform: translateY(-162px);
+                }
+
+                &:hover &__img{
+                    opacity: 1;
+                }
+
+                &__img{
+                    width: 50px;
+                    position: absolute;
+                    z-index: 2;
+                    opacity: 0;
+                    transition: all .5s;
+
+                    &--1{
+                        left: 1px;
+                    }
+                    &--2{
+                        left: 100px;
+                        top: 100px;
+                    }
+                    &--3{
+                        left: 200px;
+                    }
+                    &--4{
+                        left: 300px;
+                        top: 100px;
+                    }
+                    &--5{
+                        left: 400px;
+                    }
+                }
+                
+
+                // &::before {
+                //     content: "";
+                //     position: absolute;
+                //     width: 450px;
+                //     height: 8px;
+                //     background-color: #603b2a;
+                // }
+            }
+
+            &__subtitle {
+                font-family: "Abel", sans-serif;
+                font-size: 18px;
+                font-weight: 400;
+                align-self: flex-end;
+            }
+        }
+    }
+
+    .bm {
+        display: none;
+    }
+
+    @media only screen and (min-width: 1600px) {
+        .article {
+            padding-right: 3vw;
+            width: fit-content;
+            align-items: center;
+
+            &__title-container {
+                width: fit-content;
+            }
+        }
+    }
+</style>
+
+<!-- <script is:inline>
+    const arepitasArr = document.querySelectorAll('.article__title-container__title__img');
+    console.log(arepitasArr);
+    arepitasArr.forEach(arepita =>{
+        arepita.style.left = `${Math.floor(Math.random()*400)}px`
+    })
+</script> -->

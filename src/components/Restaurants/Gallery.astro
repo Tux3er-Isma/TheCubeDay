@@ -1,0 +1,295 @@
+---
+const { src1, src2, src3, src4, restaurant, bR } = Astro.props;
+console.log(bR);
+---
+
+<div class="gallery" data-restaurant={restaurant}>
+    <div
+        class="gallery__container gallery__container--1"
+        style=`border-radius: ${bR};`
+    >
+        <img
+            src={src1}
+            alt="Food Image 1"
+            class="gallery__img gallery__img--1"
+            style=`border-radius: ${bR};`
+        />
+        <div class="gallery__overlay">
+            <div class="gallery__info">
+                <p>Arepas</p>
+            </div>
+        </div>
+    </div>
+    <div
+        class="gallery__container gallery__container--2"
+        style=`border-radius: ${bR};`
+    >
+        <img
+            src={src2}
+            alt="Food Image 2"
+            class="gallery__img gallery__img--2"
+            style=`border-radius: ${bR};`
+        />
+        <div class="gallery__overlay">
+            <div class="gallery__info">
+                <p>Arepas</p>
+            </div>
+        </div>
+    </div>
+    <div
+        class="gallery__container gallery__container--3"
+        style=`border-radius: ${bR};`
+    >
+        <img
+            src={src3}
+            alt="Food Image 3"
+            class="gallery__img gallery__img--3"
+            style=`border-radius: ${bR};`
+        />
+        <div class="gallery__overlay">
+            <div class="gallery__info">
+                <p>Arepas</p>
+            </div>
+        </div>
+    </div>
+    <div
+        class="gallery__container gallery__container--4"
+        style=`border-radius: ${bR};`
+    >
+        <img
+            src={src4}
+            alt="Food Image 4"
+            class="gallery__img gallery__img--4"
+            style=`border-radius: ${bR};`
+        />
+        <div class="gallery__overlay">
+            <div class="gallery__info">
+                <p>Arepas</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style lang="scss">
+    .gallery {
+        &__img {
+            height: 148px;
+            object-fit: cover;
+            scale: 1.15;
+            transition: transform 0.5s;
+        }
+
+        &__container {
+            height: 148px;
+            overflow: hidden;
+            display: inline-block;
+            border: 6px solid #000;
+            position: relative;
+            display: inline-flex;
+            view-timeline-name: --image;
+            view-timeline-axis: inline;
+            animation-timeline: --image;
+            animation-name: fade-in;
+            animation-range: entry 0% cover 40%;
+
+            animation-fill-mode: both;
+
+            @keyframes fade-in {
+                from {
+                    scale: 25%;
+                    opacity: 0;
+                }
+                to {
+                    scale: 100%;
+                    opacity: 1;
+                }
+            }
+
+            &:hover .gallery__img {
+                transform: scale(1.2);
+            }
+
+            &:hover .gallery__overlay,
+            .gallery__info {
+                opacity: 1;
+            }
+        }
+
+        &__overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent, #000000c2);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        &__info {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: #fff;
+            opacity: 0;
+        }
+    }
+
+    [data-restaurant="1"] {
+        width: 880px;
+
+        .gallery__img,
+        .gallery__container {
+            &--1 {
+                width: 323px;
+            }
+            &--2 {
+                width: 550px;
+            }
+            &--3 {
+                width: 550px;
+            }
+            &--4 {
+                width: 323px;
+            }
+        }
+    }
+
+    [data-restaurant="2"] {
+        width: 90%;
+        position: relative;
+
+        .gallery__img,
+        .gallery__container {
+            &--1 {
+                width: 340px;
+            }
+            &--2 {
+                width: 340px;
+            }
+            &--3 {
+                margin-right: 10px;
+                width: 680px;
+            }
+            &--4 {
+                height: 296px;
+                position: absolute;
+                top: 0px;
+                // bottom: 20px;
+                width: 520px;
+            }
+        }
+    }
+
+    [data-restaurant="3"] {
+        position: relative;
+
+        .gallery__img,
+        .gallery__container {
+            &--1 {
+                margin-right: 20px;
+                height: 300px;
+                width: 445px;
+            }
+
+            &--2 {
+                margin-right: 20px;
+                height: 300px;
+                width: 230px;
+            }
+
+            &--3,
+            &--4 {
+                width: 600px;
+            }
+
+            &--3,
+            &--4 {
+                height: 140px;
+            }
+
+            &--3 {
+                position: absolute;
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1600px) {
+        .gallery {
+            &__img,
+            &__container {
+                height: 240px;
+            }
+        }
+
+        [data-restaurant="1"] {
+            width: 963px;
+            .gallery__img,
+            .gallery__container {
+                &--1 {
+                    margin-right: 20px;
+                    width: 323px;
+                    margin-bottom: 20px;
+                }
+                &--2 {
+                    width: 600px;
+                    margin-bottom: 20px;
+                }
+                &--3 {
+                    margin-right: 20px;
+                    width: 600px;
+                }
+                &--4 {
+                    width: 323px;
+                }
+            }
+        }
+
+        [data-restaurant="2"] {
+            position: relative;
+
+            .gallery__img,
+            .gallery__container {
+                &--1 {
+                    width: 300px;
+                    margin-right: 20px;
+                    margin-bottom: 20px;
+                }
+                &--2 {
+                    width: 300px;
+                    margin-bottom: 20px;
+                }
+                &--3 {
+                    width: 620px;
+                }
+                &--4 {
+                    margin-left: 20px;
+                    height: 504px;
+                    position: absolute;
+                    top: 0px;
+                    // bottom: 20px;
+                    width: 600px;
+                }
+            }
+        }
+
+        [data-restaurant="3"] {
+            position: relative;
+
+            .gallery__img,
+            .gallery__container {
+                &--1 {
+                    height: 504px;
+                    width: 600px;
+                }
+
+                &--2 {
+                    height: 504px;
+                }
+
+                &--3,
+                &--4 {
+                    height: 242px;
+                }
+            }
+        }
+    }
+</style>

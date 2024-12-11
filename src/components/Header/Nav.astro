@@ -1,0 +1,200 @@
+<nav class="nav">
+    <div class="nav__container">
+        <ul class="nav__container__items-container">
+            <a href="#inicio"
+                ><li class="nav__container__items-container__item">
+                    INICIO
+                </li></a
+            >
+            <a href="#carta"
+                ><li class="nav__container__items-container__item">CARTA</li></a
+            >
+            <a href="#restaurantes"
+                ><li class="nav__container__items-container__item">
+                    RESTAURANTES
+                </li></a
+            >
+            <a href="#nuestra-historia"
+                ><li class="nav__container__items-container__item">
+                    NUESTRA HISTORIA
+                </li></a
+            >
+        </ul>
+    </div>
+    <hr class="nav__mark" />
+</nav>
+
+<style lang="scss">
+    .nav {
+        height: fit-content;
+        width: 90vh;
+        position: absolute;
+        z-index: 11;
+        left: 56.5%;
+        top: 50%;
+        transform: translateX(-70%) translateY(-50%) rotate(270deg); /* Ajustar para centrar horizontalmente */
+
+        &__title {
+            font-weight: 900;
+            font-size: 32px;
+            margin-left: 60px;
+        }
+
+        &__mark {
+            width: 100%;
+            border: 1.8px solid #603b2a;
+        }
+
+        &__container {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transform: rotate(180deg);
+
+            &__items-container {
+                list-style-type: none;
+                display: flex;
+                width: 100%;
+                justify-content: space-evenly;
+
+                &:hover &__item:not(:hover) {
+                    filter: blur(1px);
+                }
+
+                &__item {
+                    font-family: "Staatliches", system-ui;
+                    color: #603b2a;
+                    transition: all 0.5s;
+
+                    &:hover {
+                        scale: 1.5;
+                        color: rgb(255, 85, 0);
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1600px) {
+        .nav {
+            left: 63%;
+
+            &__mark {
+            }
+
+            &__container {
+                margin-bottom: 45px;
+
+                &__items-container {
+                    justify-content: center;
+                    gap: 80px;
+
+                    &__item {
+                        font-size: 25px;
+                    }
+                }
+            }
+        }
+    }
+
+    .fixed {
+        position: fixed;
+        left: 0px;
+        //dESDE AQUI
+        transform: translateX(0vh) translateY(-50%) rotate(0deg); /* Ajustar para centrar horizontalmente */
+        background: rgba(255, 219, 172, 0.759);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+        border: 1px solid rgb(0, 0, 0);
+        //Hast
+        width: 100px;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        border-right: 1.8px solid #603b2a;
+    }
+
+    @keyframes appear {
+        0% {
+            transform: translateX(-100px) translateY(-50%) rotate(0deg);
+        }
+
+        100% {
+            transform: translateX(0px) translateY(-50%) rotate(0deg);
+        }
+    }
+
+    .fixed-container {
+        position: relative;
+        pointer-events: none;
+    }
+
+    .ul-fixed {
+        width: 100vh;
+        transform: rotate(270deg);
+        pointer-events: all;
+    }
+
+    .fixed-item {
+        color: #603b2a;
+    }
+
+    @media only screen and (max-width: 900px) {
+        .nav {
+            display: none;
+        }
+
+        .fixed {
+            display: none;
+        }
+    }
+</style>
+
+<script is:inline>
+    if (location.pathname == "/") {
+        const nav = document.querySelector(".nav");
+        const ul = document.querySelector(".nav__container__items-container");
+        const items = document.querySelectorAll(
+            ".nav__container__items-container__item",
+        );
+        const mark = document.querySelector(".nav__mark");
+        const container = document.querySelector(".nav__container");
+
+        window.addEventListener("scroll", () => {
+            const scrollPosition = window.scrollX;
+            let threshold = 1000; // Cambia esto según la cantidad de scroll requerida
+            if (window.screen.availWidth <= 1280) {
+                threshold = 500;
+            } else {
+                threshold = 1000;
+            }
+
+            if (scrollPosition > threshold) {
+                nav.classList.add("fixed");
+                ul.classList.add("ul-fixed");
+                mark.style.display = "none";
+                items.forEach((item) => {
+                    item.classList.add("fixed-item");
+                });
+                if (document.querySelector('.fixed') != null) {
+                    document.querySelector(".fixed").style.animation =
+                    "appear 1s forwards";
+                }
+                container.classList.add("fixed-container");
+            } else {
+                if (document.querySelector(".fixed")){
+                    document.querySelector(".fixed").style.animation = "none";
+                }
+                nav.classList.remove("fixed");
+                ul.classList.remove("ul-fixed");
+                mark.style.display = "block";
+                items.forEach((item) => {
+                    item.classList.remove("fixed-item");
+                });
+                container.classList.remove("fixed-container");
+            }
+        });
+    }
+</script>

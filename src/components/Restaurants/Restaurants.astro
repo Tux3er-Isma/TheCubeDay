@@ -1,0 +1,257 @@
+---
+//Components
+import Stars from "./Stars.astro";
+import Map from "./Map.astro";
+import Restaurant from "./Restaurant.astro";
+
+//Img
+//Restaurants
+import r1Img1 from "../../assets/Restaurants/r-1/img-1.png";
+import r1Img2 from "../../assets/Restaurants/r-1/img-2.png";
+import r2Img1 from "../../assets/Restaurants/r-2/img-1.png";
+import r2Img2 from "../../assets/Restaurants/r-2/img-2.png";
+import r3Img1 from "../../assets/Restaurants/r-3/img-1.png";
+import r3Img2 from "../../assets/Restaurants/r-3/img-2.png";
+
+//Dishes
+import r1DImg1 from "../../assets/Restaurants/r-1/dishes/img-1.png";
+import r1DImg2 from "../../assets/Restaurants/r-1/dishes/img-2.png";
+import r1DImg3 from "../../assets/Restaurants/r-1/dishes/img-3.png";
+import r1DImg4 from "../../assets/Restaurants/r-1/dishes/img-4.png";
+import r2DImg1 from "../../assets/Restaurants/r-2/dishes/img-1.png";
+import r2DImg2 from "../../assets/Restaurants/r-2/dishes/img-2.png";
+import r2DImg3 from "../../assets/Restaurants/r-2/dishes/img-3.png";
+import r2DImg4 from "../../assets/Restaurants/r-2/dishes/img-4.png";
+
+//Stickers
+import Sticker1 from "../../assets/Restaurants/r-1/sticker-1.png";
+import Sticker2 from "../../assets/Restaurants/r-2/sticker-2.png";
+import Sticker3 from "../../assets/Restaurants/r-3/sticker-3.png";
+---
+
+<section class="section" id="restaurantes">
+    <!-- <Stars
+        star1={70}
+        star2={100}
+        star3={100}
+        star4={100}
+        star5={100}
+        bG="#FF9500"
+    /> -->
+    <div class="rectangle"></div>
+    <Restaurant
+        title="THE CUBE"
+        title2="DAY"
+        tC1="#fff"
+        tC2="#592D00"
+        src1={r1Img1}
+        src2={r1Img2}
+        bG="#FF9500"
+        bC="#603B2A"
+        bR="26px"
+        restaurant="1"
+        tags={[
+            ["wifi", "WI-FI", "#fff", "#000", "#000"],
+            ["utensils", "RESERVAS ONLINE", "#fff", "#000", "#000"],
+            ["umbrella", "Terraza", "#fff", "#000", "#000"],
+            ["leaf", "Vegetariano", "#fff", "#000", "#000"],
+            ["wheat-awn", "SIN GLUTEN", "#fff", "#000", "#000"],
+            ["mars-double", "LGTBIQ+", "#fff", "#000", "#000"],
+            ["bag-shopping", "Para Llevar", "#fff", "#000", "#000"],
+            ["truck", "Pedidos", "#fff", "#000", "#000"],
+        ]}
+        scrollAmmount={7}
+        sourceArray={[
+            [r1DImg1.src, r1DImg2.src, r1DImg3.src, r1DImg4.src, "1", "26px"],
+        ]}
+        sticker={Sticker1}
+    />
+    <Map
+        bC1="#3E1F1F"
+        bR="38px"
+        bRM="20px"
+        mapLink="https://maps.google.com/maps?width=600&height=400&hl=en&q=The Cube Day&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+        tC="#fff"
+        color1="#FF9500"
+        color2="#FFD3AC"
+        leafs={true}
+        restaurant="day"
+    />
+    <!-- <Stars
+        star1={70}
+        star2={100}
+        star3={100}
+        star4={100}
+        star5={100}
+        bG="#FFD3AC"
+    /> -->
+    <Restaurant
+        title="THE CUBE"
+        title2="FUSION"
+        tC1="#000"
+        tC2="#AF0000"
+        src1={r2Img1}
+        src2={r2Img2}
+        bG="#FFD3AC"
+        bC="#AF0000"
+        bR="0px"
+        restaurant="2"
+        tags={[
+            ["clock", "Happy Hour", "#E21B1B", "#fff", "#fff"],
+            ["wifi", "WI-FI", "#E21B1B", "#fff", "#fff"],
+            ["utensils", "RESERVAS ONLINE", "#E21B1B", "#fff", "#fff"],
+            ["umbrella", "Terraza", "#E21B1B", "#fff", "#fff"],
+            ["leaf", "Vegetariano", "#E21B1B", "#fff", "#fff"],
+            ["wheat-awn", "SIN GLUTEN", "#E21B1B", "#fff", "#fff"],
+            ["mars-double", "LGTBIQ+", "#E21B1B", "#fff", "#fff"],
+            ["bag-shopping", "Para Llevar", "#E21B1B", "#fff", "#fff"],
+            ["truck", "Pedidos", "#E21B1B", "#fff", "#fff"],
+        ]}
+        scrollAmmount={7}
+        sourceArray={[
+            [r2DImg1.src, r2DImg3.src, r2DImg2.src, r2DImg4.src, "2"],
+        ]}
+        sticker={Sticker2}
+    />
+    <Map
+        bC1="#af0000"
+        mapLink="https://maps.google.com/maps?width=600&height=400&hl=en&q=TheCubeFusion&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+        tC="#fff"
+        color1="#FFD3AC"
+        color2="#191A1C"
+        coctail={true}
+        restaurant="fusion"
+    />
+    <!-- <Stars
+        star1={40}
+        star2={100}
+        star3={100}
+        star4={100}
+        star5={100}
+        bG="#191A1C"
+    /> -->
+    <Restaurant
+        title="THE CUBE"
+        title2="DE LA FONT"
+        tC1="#fff"
+        tC2="#FF9500"
+        src1={r3Img1}
+        src2={r3Img2}
+        bG="#191A1C"
+        bC="#603B2A"
+        bR="26px"
+        restaurant="3"
+        tags={[
+            ["wifi", "WI-FI", "#FFA600", "#000", "#000"],
+            ["utensils", "RESERVAS ONLINE", "#FFA600", "#000", "#000"],
+            ["umbrella", "Terraza", "#FFA600", "#000", "#000"],
+            ["leaf", "Vegetariano", "#FFA600", "#000", "#000"],
+            ["wheat-awn", "SIN GLUTEN", "#FFA600", "#000", "#000"],
+            ["mars-double", "LGTBIQ+", "#FFA600", "#000", "#000"],
+            ["bag-shopping", "Para Llevar", "#FFA600", "#000", "#000"],
+            ["truck", "Pedidos", "#FFA600", "#000", "#000"],
+        ]}
+        scrollAmmount={10}
+        sourceArray={[
+            [r1DImg2.src, r1DImg2.src, r1DImg2.src, r1DImg2.src, "3", "26px"],
+        ]}
+        sticker={Sticker3}
+    />
+    <Map
+        bC1="#603B2A"
+        bR="38px"
+        bRM="20px"
+        mapLink="https://maps.google.com/maps?width=600&height=400&hl=en&q=TheCubedelafont&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+        tC="#000"
+        color1="#191A1C"
+        color2="#fbeee0"
+        statue={true}
+        restaurant="font"
+    />
+</section>
+
+<style lang="scss">
+    .section {
+        width: fit-content;
+        height: 100vh;
+        // border: 10px solid #00f;
+        display: flex;
+
+        &__bar {
+            width: 100px;
+            height: 100vh;
+            background-color: #ff7700;
+        }
+    }
+
+    .rectangle {
+        width: 100px;
+        height: 100vh;
+        background-color: #e5c6a5;
+    }
+</style>
+
+<script is:inline>
+    const stickers = document.querySelectorAll(".container__sticker-container");
+    console.log(stickers);
+
+    stickers.forEach((sticker) => {
+        let newX = 0,
+            newY = 0,
+            startX = 0,
+            startY = 0;
+        let isDragging = false;
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            if (!sticker) {
+                console.error(
+                    "No se encontró el elemento .main__part__img-container",
+                );
+                return;
+            }
+
+            sticker.addEventListener("mousedown", mouseDown);
+
+            function mouseDown(e) {
+                e.preventDefault(); // Previene comportamiento predeterminado del navegador
+                startX = e.clientX;
+                startY = e.clientY;
+                isDragging = true;
+
+                // Añade eventos globales mientras arrastras
+                document.addEventListener("mousemove", mouseMove);
+                document.addEventListener("mouseup", mouseUp);
+            }
+
+            function mouseMove(e) {
+                if (!isDragging) return;
+
+                // Calcula la nueva posición
+                newX = e.clientX - startX;
+                newY = e.clientY - startY;
+
+                // Actualiza las posiciones iniciales para la siguiente iteración
+                startX = e.clientX;
+                startY = e.clientY;
+
+                // Mueve la tarjeta
+                const top = sticker.offsetTop + newY;
+                const left = sticker.offsetLeft + newX;
+
+                sticker.style.top = `${top}px`;
+                sticker.style.left = `${left}px`;
+                sticker.style.cursor = "grabbing";
+            }
+
+            function mouseUp() {
+                isDragging = false;
+                sticker.style.cursor = "grab";
+
+                // Quita los eventos globales una vez se suelta el mouse
+                document.removeEventListener("mousemove", mouseMove);
+                document.removeEventListener("mouseup", mouseUp);
+            }
+        });
+    });
+</script>

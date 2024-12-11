@@ -1,0 +1,221 @@
+---
+import Img from "../../assets/Header/arepa.png";
+import Img2 from "../../assets/Main/interactive.png";
+import Article1 from "./Article1.astro";
+import Article2 from "./Article2.astro";
+import Article3 from "./Article3.astro";
+import Article4 from "./Article4.astro";
+import Gallery from "./Gallery.astro";
+---
+
+<section class="main" id="carta">
+    <div class="main__part">
+        <Article1 />
+        <Article2 />
+    </div>
+    <div class="main__part main__part--2">
+        <Gallery />
+    </div>
+    <div class="main__part">
+        <div class="main__part__img-container">
+            <img
+                src={Img.src}
+                class="main__part__img-container__img"
+                width="400"
+            />
+        </div>
+        <Article3 />
+        <Article4 />
+    </div>
+    <!-- <img src={Img2.src} class="main__interactive-img"> -->
+</section>
+
+<style lang="scss">
+    .main {
+        width: fit-content;
+        height: 100vh;
+        // margin-right: 40vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        &__part {
+            display: flex;
+            align-items: center;
+            // outline: 10px solid #000;
+            // background-color: #0ff;
+            height: 40vh;
+
+            &__img-container {
+                width: 20vw;
+                position: absolute;
+
+                &__img {
+                    position: relative;
+                    bottom: -15vh;
+                    left: -15vw;
+                    z-index: 10;
+                    transition: all 0.5s;
+
+                    &:hover {
+                        cursor: grab;
+                        scale: 1.1;
+                        filter: drop-shadow(1px 15px 4px #00000094);
+                    }
+
+                    &:active {
+                        cursor: grabbing;
+                    }
+                }
+            }
+
+            &--2 {
+                display: none;
+            }
+        }
+
+        &__interactive-img {
+        }
+    }
+
+    @media only screen and (max-width: 900px) {
+        .main {
+            height: 90vh;
+            margin-right: 250px;
+
+            &__part {
+                &__img-container {
+                    &__img {
+                        z-index: 2;
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1600px) {
+        .main {
+            &__part {
+                &__img-container {
+                    &__img {
+                        width: 600px;
+                    }
+                }
+            }
+        }
+    }
+</style>
+
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () =>{
+
+        if (location.pathname == "/") {
+        let newX = 0,
+            newY = 0,
+            startX = 0,
+            startY = 0;
+        let isDragging = false;
+
+            const card = document.querySelector(".main__part__img-container");
+
+            if (!card) {
+                console.error(
+                    "No se encontró el elemento .main__part__img-container",
+                );
+                return;
+            }
+
+            card.addEventListener("mousedown", mouseDown);
+
+            function mouseDown(e) {
+                e.preventDefault(); // Previene comportamiento predeterminado del navegador
+                startX = e.clientX;
+                startY = e.clientY;
+                isDragging = true;
+
+                // Añade eventos globales mientras arrastras
+                document.addEventListener("mousemove", mouseMove);
+                document.addEventListener("mouseup", mouseUp);
+            }
+
+            function mouseMove(e) {
+                if (!isDragging) return;
+
+                // Calcula la nueva posición
+                newX = e.clientX - startX;
+                newY = e.clientY - startY;
+
+                // Actualiza las posiciones iniciales para la siguiente iteración
+                startX = e.clientX;
+                startY = e.clientY;
+
+                // Mueve la tarjeta
+                const top = card.offsetTop + newY;
+                const left = card.offsetLeft + newX;
+
+                card.style.top = `${top}px`;
+                card.style.left = `${left}px`;
+                card.style.cursor = "grabbing";
+            }
+
+            function mouseUp() {
+                isDragging = false;
+                card.style.cursor = "grab";
+
+                // Quita los eventos globales una vez se suelta el mouse
+                document.removeEventListener("mousemove", mouseMove);
+                document.removeEventListener("mouseup", mouseUp);
+            }
+    }
+    })
+
+</script>
+
+<!-- <script is:inline>
+    const main = document.querySelector("body > div.desktop > section.main");
+    const article1 = main.children[0].children[0];
+    const article2 = main.children[0].children[1];
+    const article3 = main.children[2].children[1];
+    const article4 = main.children[2].children[2];
+    console.log(article1);
+
+    const observer = new IntersectionObserver(
+        (entries) =>{
+            console.log(entries)
+            entries.forEach(entry =>{
+                if (entry.isIntersecting){
+                    console.log(`${entry.target} is intersecting`)
+                    entry.target.style.animation = "fade-in linear .2s"
+                } else {
+                    console.log(`${entry} is no longer intersecting`)
+                    entry.target.style.animation = 'none';
+                }
+            })
+        }
+    )
+
+    observer.observe(document.querySelector("body > div.desktop > section.main > div:nth-child(1) > article:nth-child(2) > div > div:nth-child(1)"))
+    // observer.observe(article2.children)
+</script> -->
+
+<!-- <script is:inline>
+    // Selecciona todos los elementos a observar
+    const items = document.querySelectorAll('.scroll-item');
+
+    // Configuración del Intersection Observer
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in'); // Agrega la clase de animación
+                } else {
+                    entry.target.classList.remove('fade-in'); // Remueve la clase al salir de la vista (opcional)
+                }
+            });
+        },
+        { root: null, threshold: 0.5, rootMargin: '0px' } // Ajusta el threshold según tus necesidades
+    );
+
+    // Observa cada elemento
+    items.forEach(item => observer.observe(item));
+</script> -->

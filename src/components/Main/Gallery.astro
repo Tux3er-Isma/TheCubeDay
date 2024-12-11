@@ -1,0 +1,42 @@
+---
+import Img1 from "../../assets/Main/Img1.png";
+import Img2 from "../../assets/Main/Img2.png";
+import Img3 from "../../assets/Main/Img3.png";
+import Img4 from "../../assets/Main/Img4.png";
+---
+
+<div class="gallery">
+    <div class="gallery__part">
+        <img src={Img3.src} class="gallery__part__img" height="151">
+        <img src={Img2.src} class="gallery__part__img" height="293">
+    </div>
+    <div class="gallery__part">
+        <img src={Img1.src} class="gallery__part__img" height="277">
+        <img src={Img4.src} class="gallery__part__img" height="164">
+    </div>
+</div>
+
+<style lang="scss">
+    .gallery{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        display: flex;
+        width: 100vw;
+        justify-content: flex-start;
+        gap: 10vw;
+
+        &__part{
+            width: 40vw;
+            display: flex;
+            flex-direction: column;
+            gap: 10vw;
+
+            &__img{
+                border: 4.68px solid #603B2A;
+                object-fit: cover;
+                border-radius: 15px;
+                width: 100%;
+            }
+        }
+    }
+</style>

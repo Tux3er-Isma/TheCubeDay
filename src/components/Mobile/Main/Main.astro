@@ -1,0 +1,182 @@
+---
+import Section1 from "./Section1.astro";
+import Restaurant from "./Restaurant.astro";
+import Aside from "./Aside.astro";
+import Section2 from "./Section2.astro";
+
+import r1Img1 from "../../../assets/Restaurants/r-1/img-1.png";
+import r1Img2 from "../../../assets/Restaurants/r-1/img-2.png";
+
+import Sticker1 from "../../../assets/Restaurants/r-1/sticker-1.png";
+import Sticker2 from "../../../assets/Restaurants/r-2/sticker-2.png";
+import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
+---
+
+<main class="main">
+    <Section1 />
+    <div class="main__restaurant" id="r">
+        <Restaurant
+            title="THE CUBE "
+            title2="DAY"
+            src1={r1Img2}
+            src2={r1Img1}
+            w1="345"
+            h1="382"
+            w2="345"
+            h2="477"
+            background="#FF7700"
+            titleColor="#fff"
+            title2Color="#592D00"
+            borderColor="#603B2A"
+            borderRadius="26px"
+            mapLink="https://maps.google.com/maps?width=600&height=400&hl=en&q=The Cube Day&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+            btnBG="#815943"
+            btnBC="#603B2A"
+            btnC="#fff"
+            sticker={Sticker1}
+        />
+        <Restaurant
+            title="THE CUBE "
+            title2="FUSION"
+            src1={r1Img2}
+            src2={r1Img1}
+            w1="345"
+            h1="382"
+            w2="345"
+            h2="477"
+            background="#F8DEC8"
+            titleColor="#000000"
+            title2Color="#AF0000"
+            borderColor="#AF0000"
+            borderRadius="0px"
+            mapLink="https://maps.google.com/maps?width=600&height=400&hl=en&q=The Cube Day&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+            btnBG="#AF0000"
+            btnBC="#000"
+            btnC="#fff"
+            sticker={Sticker2}
+        />
+        <Restaurant
+            title="THE CUBE "
+            title2="DE LA "
+            title3="FONT"
+            src1={r1Img2}
+            src2={r1Img1}
+            w1="345"
+            h1="382"
+            w2="345"
+            h2="477"
+            background="#191A1C"
+            titleColor="#fff"
+            title2Color="#FF9500"
+            borderColor="#603B2A"
+            borderRadius="26px"
+            mapLink="https://maps.google.com/maps?width=600&height=400&hl=en&q=The Cube Day&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+            btnBG="#FF9500"
+            btnBC="#603B2A"
+            btnC="#191a1c"
+            sticker={Sticker3}
+        />
+    </div>
+    <Aside />
+    <Section2 />
+    <button type="button" class="main__btn">RESERVAR MESA</button>
+</main>
+
+<style lang="scss">
+    .main {
+        margin-top: 50px;
+        z-index: -1;
+        overflow-x: hidden;
+        width: 100vw;
+
+        &__btn {
+            width: 100vw;
+            height: 100px;
+            position: absolute;
+            background-color: #ffae00;
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 65px;
+            margin-top: 50px;
+        }
+    }
+</style>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const stickers = document.querySelectorAll(
+            ".container__sticker-container--mobile"
+        );
+
+        if (!stickers.length) {
+            console.error("No se encontraron elementos con la clase .container__sticker-container--mobile");
+            return;
+        }
+
+        stickers.forEach((card) => {
+            let newmX = 0,
+                newmY = 0,
+                startmX = 0,
+                startmY = 0;
+            let isDragging = false;
+
+            // Agregar eventos al card
+            card.addEventListener("mousedown", startDrag);
+            card.addEventListener("touchstart", startDrag);
+
+            function startDrag(e) {
+                e.preventDefault();
+
+                const isTouch = e.type === "touchstart";
+                const clientX = isTouch ? e.touches[0].clientX : e.clientX;
+                const clientY = isTouch ? e.touches[0].clientY : e.clientY;
+
+                startmX = clientX;
+                startmY = clientY;
+                isDragging = true;
+
+                // Eventos globales
+                if (isTouch) {
+                    document.addEventListener("touchmove", dragMove);
+                    document.addEventListener("touchend", endDrag);
+                } else {
+                    document.addEventListener("mousemove", dragMove);
+                    document.addEventListener("mouseup", endDrag);
+                }
+
+                card.style.cursor = "grabbing";
+            }
+
+            function dragMove(e) {
+                if (!isDragging) return;
+
+                const isTouch = e.type === "touchmove";
+                const clientX = isTouch ? e.touches[0].clientX : e.clientX;
+                const clientY = isTouch ? e.touches[0].clientY : e.clientY;
+
+                // Calcular nuevas coordenadas
+                newmX = clientX - startmX;
+                newmY = clientY - startmY;
+
+                startmX = clientX;
+                startmY = clientY;
+
+                let top = card.offsetTop + newmY;
+                let left = card.offsetLeft + newmX;
+
+                card.style.top = `${top}px`;
+                card.style.left = `${left}px`;
+            }
+
+            function endDrag() {
+                isDragging = false;
+
+                card.style.cursor = "grab";
+
+                document.removeEventListener("mousemove", dragMove);
+                document.removeEventListener("mouseup", endDrag);
+                document.removeEventListener("touchmove", dragMove);
+                document.removeEventListener("touchend", endDrag);
+            }
+        });
+    });
+</script>

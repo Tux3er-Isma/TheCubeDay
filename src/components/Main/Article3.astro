@@ -1,0 +1,107 @@
+---
+import Img3 from "../../assets/Main/Img3.png";
+import Img4 from "../../assets/Main/Img4.png";
+---
+
+<article class="article">
+    <div class="article__img-container">
+        <div class="article__img-container__container">
+            <img
+                src={Img3.src}
+                class="article__img-container__container__img article__img-container__container__img--3"
+                width="206"
+                height="315"
+            />
+        </div>
+        <div class="article__img-container__container">
+            <img
+                src={Img4.src}
+                class="article__img-container__container__img article__img-container__container__img--4"
+                width="414"
+                height="315"
+            />
+        </div>
+    </div>
+</article>
+
+<style lang="scss">
+    .article {
+        // border: 2px solid rgb(255, 15, 243);
+        display: flex;
+        width: fit-content;
+        margin-left: 20vw;
+
+        &__img-container {
+            height: 100%;
+            gap: 1vw;
+            width: fit-content;
+            display: flex;
+            justify-content: space-evenly;
+            height: 40vh;
+
+            &__container {
+                border: 8px solid #e5c6a5;
+                overflow: hidden;
+                height: 100%;
+                view-timeline-name: --image;
+                view-timeline-axis: inline;
+                animation-timeline: --image;
+                animation-name: fade-in;
+                animation-range: entry 0% cover 40%;
+
+                animation-fill-mode: both;
+
+                @keyframes fade-in {
+                    from {
+                        scale: 25%;
+                        opacity: 0;
+                    }
+                    to {
+                        scale: 100%;
+                        opacity: 1;
+                    }
+                }
+
+                &__img {
+                    object-fit: cover;
+                    transition: all 0.5s;
+                    height: 100%;
+
+                    &:hover {
+                        scale: 1.2;
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 900px) {
+        .article {
+            margin-left: 130px;
+        }
+    }
+
+    // @media only screen and (min-width: 1600px) {
+    //     .article {
+    //         &__img-container {
+    //             gap: 1vw;
+    //             width: fit-content;
+
+    //             &__container {
+                    
+    //                 &__img {
+    //                     height: 400px;
+
+    //                     &--3 {
+    //                         width: 300px;
+    //                     }
+
+    //                     &--4 {
+    //                         width: 600px;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+</style>

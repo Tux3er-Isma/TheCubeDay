@@ -1,0 +1,234 @@
+---
+import Nav from "./Nav.astro";
+import Slider from "./Slider.astro";
+import Aside from "./Aside.astro";
+import HeroImg from "../../assets/Header/hero-img.png";
+import Arrow from "../../assets/Header/arrow.png";
+import { fade } from "astro:transitions";
+---
+
+<section class="header" id="inicio">
+    <aside class="header__banner">THE CUBE</aside>
+    <main class="header__main">
+        <div class="header__main__rectangle">
+            <img
+                src={Arrow.src}
+                alt="Arrow"
+                class="header__main__rectangle__arrow"
+            />
+            <img
+                src={HeroImg.src}
+                alt="Quim"
+                class="header__main__rectangle__img"
+            />
+            <div class="header__main__rectangle__toggle">
+                <p class="header__main__rectangle__toggle__txt">
+                    ¡Disfruta de nuestra
+                </p>
+                <div class="header__main__rectangle__toggle__container">
+                    comida
+                    <span class="header__main__rectangle__toggle--blue"
+                        >ven</span
+                    ><span class="header__main__rectangle__toggle--orange"
+                        >ezol</span
+                    ><span class="header__main__rectangle__toggle--red"
+                        >ana!</span
+                    >
+                </div>
+            </div>
+        </div>
+    </main>
+    <Nav />
+    <Slider />
+    <!-- <Aside /> -->
+</section>
+
+<style lang="scss">
+    .header {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+
+        &__banner {
+            background-color: #603b2a;
+            color: #fff;
+            font-weight: 900;
+            width: 200px;
+            text-align: center;
+            border-radius: 0px 58px 58px 0px;
+            font-size: 32px;
+            position: absolute;
+            top: 22px;
+            z-index: 1293;
+
+            // Tooltip
+            &::after {
+                content: "Disfruta de nuestra comida venezolana!"; // Texto del tooltip
+                position: absolute;
+                top: 50%;
+                left: 105%; // Ubicación del tooltip a la derecha
+                transform: translateY(-50%);
+                background-color: #fff; // Fondo blanco
+                color: #000; // Texto negro
+                padding: 8px 12px;
+                font-size: 14px;
+                font-weight: 500;
+                border-radius: 8px; // Bordes redondeados
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); // Sombra sutil
+                opacity: 0; // Ocultarlo inicialmente
+                pointer-events: none; // Prevenir interacción
+                transition: opacity 0.2s ease; // Transición suave
+                width: 300px;
+            }
+
+            &:hover::after {
+                opacity: 1; // Mostrar el tooltip al hacer hover
+                scale: 3px;
+            }
+        }
+
+        &__main {
+            height: 100vh;
+            width: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &__rectangle {
+                position: relative;
+                height: 70vh;
+                width: 80%;
+                background: none; // Elimina la imagen de fondo aquí
+                position: relative;
+                bottom: 0px;
+                border-radius: 118.91px;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                padding-bottom: 20px;
+
+                // Pseudo-elemento para la imagen de fondo desenfocada
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: url("../../assets/Header/rectangle-bg.png");
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    filter: blur(3px); // Aplica el desenfoque aquí
+                    border-radius: 118.91px; // Asegúrate de que el pseudo-elemento tenga el mismo borde redondeado
+                    z-index: -1; // Manda el pseudo-elemento detrás del contenido
+                }
+
+                &__img {
+                    width: 70vw;
+                    transition: scale 0.5s;
+                    transform: translateX(-1vw);
+                    scale: 1.1;
+                    position: relative;
+                    top: 150px;
+                }
+
+                &__arrow {
+                    display: none;
+                }
+
+                &__toggle {
+                    position: absolute;
+                    background-color: #fff1d8;
+                    width: 385px;
+                    height: 225px;
+                    bottom: -130px;
+                    display: flex;
+                    border-radius: 40px 40px 0px 0px;
+                    border: 12px solid #ff9500;
+                    font-family: "Staatliches", sans-serif;
+                    font-size: 37px;
+                    text-align: center;
+                    flex-direction: column;
+                    transition: all 0.5s;
+
+                    &__txt {
+                        margin-top: 40px;
+                    }
+
+                    &--blue {
+                        color: #0033ff;
+                    }
+
+                    &--orange {
+                        color: #bf7600;
+                    }
+
+                    &--red {
+                        color: #e21b1b;
+                    }
+
+                    &:hover {
+                        transform: scale(1.1); /* Aumenta el tamaño al 110% */
+                        box-shadow: 1px 1px 10px;
+                        -webkit-box-shadow: inset 0px 0px 63px -7px rgba(0, 0, 0, 0.16);
+                        -moz-box-shadow: inset 0px 0px 63px -7px rgba(0, 0, 0, 0.276);
+                        box-shadow: inset 0px 0px 63px -7px rgba(0, 0, 0, 0.29);
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1600px) {
+        .header {
+            width: 115vw;
+
+            &__main {
+
+                &__rectangle {
+
+                    &__toggle {
+
+                        &__txt {
+                            margin-top: 55px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 900px) {
+        .header {
+            &__main {
+                &__rectangle {
+                    &__img {
+                        position: static;
+                        scale: 1.5;
+                    }
+                }
+            }
+        }
+    }
+
+    .fade-in {
+        opacity: 0;
+        animation: fade-in 1s forwards; // 4s como en tu ejemplo.
+    }
+
+    @keyframes fade-in {
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const banner = document.querySelector(".header__banner");
+        if (banner) {
+            banner.classList.add("fade-in");
+        }
+    });
+</script>

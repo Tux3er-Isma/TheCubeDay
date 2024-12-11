@@ -1,0 +1,138 @@
+---
+import Img1 from "../../../assets/Header/arepa.png";
+import Img2 from "../../../assets/Header/slider-1.png";
+---
+
+<aside class="container">
+    <button type="button" class="container__btn">RESERVAR MESA</button>
+    <div class="container__part">
+        <img src={Img1.src} class="container__part__img container__part__img--1">
+        <img src={Img2.src} class="container__part__img container__part__img--2">
+    </div>
+</aside>
+
+<style lang="scss">
+    .container{
+
+        &__btn{
+            width: 100%;
+            font-family: 'Bebas Neue', sans-serif;
+            background-color: #FFA600;
+            color: #090909;
+            font-size: 63px;
+        }
+
+        &__part{
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            &__img{
+                object-fit: cover;
+
+                &--1{
+                    width: 321px;
+                    height: 301px;
+                    position: absolute;
+                    left: -100px;
+                    z-index: 2;
+                    touch-action: none;
+                }
+
+                &--2{
+                    width: 360px;
+                    height: 226px;
+                    border: 7px solid #603B2A;
+                    border-radius: 23px;
+                    transform: translateX(130px);
+                    z-index: 1;
+                }
+            }
+        }
+    }
+</style>
+<script is:inline>
+    let newmX = 0,
+        newmY = 0,
+        startmX = 0,
+        startmY = 0;
+    let ismDragging = false;
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const card = document.querySelector('.container__part__img--1');
+
+        if (!card) {
+            console.error("No se encontró el elemento .container__part__img--1");
+            return;
+        }
+
+        // Agregar eventos para mouse y touch
+        card.addEventListener("mousedown", startDrag);
+        card.addEventListener("touchstart", startDrag);
+
+        function startDrag(e) {
+            e.preventDefault();
+
+            // Detecta si es un evento de touch o de mouse
+            const isTouch = e.type === "touchstart";
+            const clientX = isTouch ? e.touches[0].clientX : e.clientX;
+            const clientY = isTouch ? e.touches[0].clientY : e.clientY;
+
+            startmX = clientX;
+            startmY = clientY;
+            ismDragging = true;
+
+            // Añade eventos globales para el movimiento y finalización
+            if (isTouch) {
+                document.addEventListener("touchmove", dragMove);
+                document.addEventListener("touchend", endDrag);
+            } else {
+                document.addEventListener("mousemove", dragMove);
+                document.addEventListener("mouseup", endDrag);
+            }
+
+            card.style.cursor = 'grabbing';
+        }
+
+        function dragMove(e) {
+            if (!ismDragging) return;
+
+            // Detecta si es un evento de touch o de mouse
+            const isTouch = e.type === "touchmove";
+            const clientX = isTouch ? e.touches[0].clientX : e.clientX;
+            const clientY = isTouch ? e.touches[0].clientY : e.clientY;
+
+            // Calcula la nueva posición
+            newmX = clientX - startmX;
+            newmY = clientY - startmY;
+
+            // Actualiza las posiciones iniciales para la siguiente iteración
+            startmX = clientX;
+            startmY = clientY;
+
+            // Calcula las nuevas coordenadas
+            const top = card.offsetTop + newmY;
+            const left = card.offsetLeft + newmX;
+            if (left > 70){
+                left -= 100
+            }
+
+            // Aplica las nuevas coordenadas al elemento
+            card.style.top = `${top}px`;
+            card.style.left = `${left}px`;
+        }
+
+        function endDrag(e) {
+            ismDragging = false;
+
+            card.style.cursor = 'grab';
+
+            // Quita los eventos globales
+            document.removeEventListener("mousemove", dragMove);
+            document.removeEventListener("mouseup", endDrag);
+            document.removeEventListener("touchmove", dragMove);
+            document.removeEventListener("touchend", endDrag);
+        }
+    });
+</script>

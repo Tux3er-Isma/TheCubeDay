@@ -1,0 +1,142 @@
+---
+const {
+    title,
+    title2,
+    title3,
+    src1,
+    src2,
+    w1,
+    h1,
+    w2,
+    h2,
+    mapLink,
+    background,
+    titleColor,
+    title2Color,
+    borderColor,
+    borderRadius,
+    btnBC,
+    btnC,
+    btnBG,
+    sticker,
+} = Astro.props;
+---
+
+<div class="container" style=`background-color: ${background}`>
+    <div
+        class="container__sticker-container container__sticker-container--mobile"
+    >
+        <img src={sticker.src} class="container__sticker-container__sticker" />
+    </div>
+    <h1 class="container__title" style=`color: ${titleColor}`>
+        {title}
+        <span class="container__title--color" style=`color: ${title2Color}`
+            >{title2}</span
+        >
+        <br />
+        <span class="container__title--color" style=`color: ${title2Color}`
+            >{title3}</span
+        >
+    </h1>
+    <div class="container__img-container">
+        <img
+            src={src1.src}
+            class="container__img-container__img container__img-container__img--1"
+            width={w1}
+            height={h1}
+            style=`border-radius: ${borderRadius}; border: 5px solid ${borderColor}`
+        />
+        <img
+            src={src2.src}
+            class="container__img-container__img container__img-container__img--2"
+            width={w2}
+            height={h2}
+            style=`border-radius: ${borderRadius}; border: 5px solid ${borderColor}`
+        />
+    </div>
+    <div class="container__map-container">
+        <iframe
+            class="container__map-container__map"
+            style=`border-top: 5px solid ${borderColor}; border-bottom: 5px solid ${borderColor};`
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+            src={mapLink}></iframe>
+        <!-- <img src="https://staticmapmaker.com/img/google-placeholder.png" alt="" class="container__map-container__img"> -->
+    </div>
+    <button
+        type="button"
+        class="container__btn"
+        style=`background-color: ${btnBG}; border-top: 12px solid ${btnBC}; border-bottom: 12px solid ${btnBC}; color: ${btnC}`
+        >RESERVAR MESA</button
+    >
+</div>
+
+<style lang="scss">
+    .container {
+        width: 100vw;
+        position: relative;
+
+        &__sticker-container {
+            position: absolute;
+            right: 10px;
+            top: 140px;
+            z-index: 2;
+            width: 150px;
+            height: 150px;
+
+            &__sticker {
+                width: 150px;
+                height: 150px;
+                position: relative;
+                transition: all 0.5s;
+                filter: drop-shadow(7px 4px 0.7px #000000bf);
+
+                &:hover {
+                    scale: 1.1;
+                    filter: drop-shadow(7px 20px 7px #000000c1);
+                }
+            }
+        }
+
+        &__title {
+            padding-top: 20px;
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 110px;
+        }
+
+        &__img-container {
+            display: flex;
+
+            &__img {
+                &--1 {
+                    transform: translateX(-150px);
+                }
+
+                &--2 {
+                    transform: translateX(-100px) translateY(-100px);
+                }
+            }
+        }
+
+        &__map-container {
+            width: 100%;
+            height: 293px;
+            display: flex;
+            justify-content: center;
+
+            &__map {
+                width: 110%;
+                height: 100%;
+            }
+        }
+
+        &__btn {
+            margin-top: 50px;
+            width: 100vw;
+            font-family: "Bebas Neue";
+            font-size: 63.41px;
+        }
+    }
+</style>

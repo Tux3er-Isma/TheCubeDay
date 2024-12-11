@@ -1,0 +1,63 @@
+---
+import Arepa from "../../assets/Header/arepa.png";
+import Img1 from "../../assets/Header/slider-1.png";
+---
+
+<aside class="aside">
+    <div class="aside__btn-container">
+        <button class="aside__btn-container__btn">RESERVAR MESA</button>
+    </div>
+    <div class="aside__img-container">
+        <img src={Arepa.src} alt="Arepa" class="aside__img-container__interactive-img"  width="100" />
+        <img src={Img1.src} alt="TheCubeDay" class="aside__img-container__img" />
+    </div>
+</aside>
+
+<style lang="scss">
+    .aside{ 
+        display: none;
+        position: relative;
+        top: 35vh;
+        flex-direction: column;
+
+        &__btn-container{
+            background-color: #FFA600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+
+            &__btn{
+                background-color: transparent;
+                font-weight: 400;
+                font-size: 62px;
+                font-family: 'Bebas Neue';
+            }
+        }
+
+        &__img-container{
+            padding-top: 20px;
+            display: flex;
+            border: 1px solid #0f0;
+            align-items: center;
+
+            &__interactive-img{
+                width: 321px;
+                scale: 1.2;
+                position: absolute;
+                left: -100px;
+                z-index: 2;
+                filter: drop-shadow(10px 4px 6.5px #000);
+            }
+
+            &__img{
+                width: 360px;
+                border-radius: 23px;
+                border: 7px solid #603B2A;
+                position: relative;
+                right: -30vw;
+
+            }
+        }
+    }
+</style>

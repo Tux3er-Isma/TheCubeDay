@@ -1,0 +1,246 @@
+---
+import Img1 from "../../assets/Header/slider-1.png";
+import Img2 from "../../assets/Restaurants/r-2/img-1.png";
+import Img3 from "../../assets/Restaurants/r-3/img-1.png";
+---
+
+<div class="slider-container">
+    <div class="slider-container__wrapper">
+        <video class="slider-container__wrapper__img" autoplay muted loop>
+            <source src="/primer-main.mp4" type="video/mp4">
+        </video>
+<!-- 
+        <img
+            src="https://www.shutterstock.com/image-photo/empty-coffee-table-over-defocused-600nw-1810878547.jpg"
+            alt="TheCubeDay"
+            class="slider-container__wrapper__img"
+        />
+        <img
+            src="https://i.pinimg.com/736x/90/f5/4e/90f54ea794aed078324ddb4abd1100c3.jpg"
+            alt="CubeDay"
+            class="slider-container__wrapper__img"
+        /> -->
+    </div>
+    <a class="slider-container__wrapper__btn-container" href="/choose">
+        <button
+            type="button"
+            class="slider-container__wrapper__btn-container__btn"
+            ><p class="slider-container__wrapper__btn-container__btn__txt">
+                RESERVAR MESA
+            </p></button
+        >
+    </a>
+    <a class="slider-container__wrapper__arrow-container" href="#nuestra-historia">
+        <div class="slider-container__wrapper__arrow-container__arrow"></div>
+    </a>
+</div>
+
+<style lang="scss">
+    .slider-container {
+        position: relative;
+        width: 45%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        overflow: hidden;
+
+        &__wrapper {
+            display: flex;
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+
+            &__img {
+                width: 100%;
+                height: 100vh;
+                object-fit: cover;
+                // scroll-snap-align: center;
+                filter: grayscale(100%) brightness(50%) saturate(100%);
+                transition: all .5s;
+
+                &:hover{
+                    filter: grayscale(0%) brightness(100%) saturate(115%);
+                }
+            }
+
+            &__btn-container {
+                width: 80%;
+                height: 15vh;
+                background-color: #ffa600;
+                border: 8px solid #fff;
+                position: absolute;
+                z-index: 2;
+                top: 10vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 32px;
+                transition: all 0.5s;
+
+                &:hover {
+                    position: absolute;
+                    top: 0px;
+                    width: 100%;
+                    border-radius: 0px;
+                    height: 100%;
+                    border: 0px solid #5d4009;
+                    z-index: 1px;
+                }
+
+                &__btn {
+                    font-family: "Bebas Neue";
+                    background: transparent;
+                    font-size: 60px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+
+                    &__txt {
+                        text-align: center;
+                        display: flex; // Asegurar que el texto también use flexbox
+                        justify-content: center; // Centrar horizontalmente
+                        align-items: center; // Centrar verticalmente
+                    }
+                }
+            }
+
+            &__arrow-container {
+                width: 142px;
+                height: 100px;
+                background-color: #ffa600;
+                border: 8px solid #fff;
+                position: absolute;
+                z-index: 2;
+                bottom: 10vh;
+                display: flex;
+                align-items: center;
+                transition: all 0.5s;
+
+                &:hover {
+                    cursor: pointer;
+                    scale: 1.5;
+                    background-color: #dd9001;
+                }
+
+                &__arrow {
+                    width: 30%;
+                    height: 6px;
+                    background-color: #000;
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    transition: width 0.5s;
+                    animation: boomerang 2s infinite;
+
+                    @keyframes boomerang {
+                        0% {
+                            width: 30%;
+                        }
+
+                        50% {
+                            width: 80%;
+                        }
+
+                        100% {
+                            width: 30%;
+                        }
+                    }
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        border-radius: 2.6px;
+                        position: absolute;
+                        transform: rotate(45deg);
+                        width: 20px;
+                        height: 20px;
+                        border-top: 7px solid #000;
+                        border-right: 7px solid #000;
+                    }
+                }
+            }
+        }
+
+        &__dots-container {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+
+            &__dot {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: #fff;
+                cursor: pointer;
+                transition: transform 0.3s ease;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &.active {
+                    &::after {
+                        content: "";
+                        width: 18px;
+                        height: 18px;
+                        border: 2px solid #fff;
+                        background-color: red;
+                        position: absolute;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1600px) {
+        .slider-container {
+            &__wrapper {
+                &__btn-container {
+                    &__btn {
+                        font-size: 101px;
+                    }
+                }
+            }
+        }
+    }
+</style>
+
+<!-- <script is:inline>
+    let currentSlide = 0;
+    const slider = document.querySelector(".slider-container__wrapper");
+    const slides = document.querySelectorAll(".slider-container__wrapper__img");
+    const dots = document.querySelectorAll(
+        ".slider-container__dots-container__dot",
+    );
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+        slider.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((dot) => dot.classList.remove("active"));
+        dots[index].classList.add("active");
+        currentSlide = index;
+    }
+
+    // Navegación automática
+    function autoSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+    }
+
+    let slideInterval = setInterval(autoSlide, 3000); // Cambiar cada 3 segundos
+
+    // Permitir que los usuarios hagan clic en los puntitos
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            clearInterval(slideInterval); // Detener el deslizamiento automático
+            showSlide(index); // Mostrar la imagen seleccionada
+            slideInterval = setInterval(autoSlide, 3000); // Reiniciar el intervalo
+        });
+    });
+</script> -->

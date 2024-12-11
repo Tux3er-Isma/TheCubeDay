@@ -1,0 +1,45 @@
+---
+const { star1, star2, star3, star4, star5, bG } = Astro.props;
+---
+
+<div class="container" style=`background-color: ${bG}`>
+    <i
+        class="fa-solid fa-star container__star"
+        style=`background: linear-gradient(0deg, #FFEA00 ${parseInt(star1)}%, lightgray ${100 - parseInt(star1)}%);             -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;`
+    ></i>
+    <i
+        class="fa-solid fa-star container__star"
+        style=`background: linear-gradient(0deg, #FFEA00 ${parseInt(star2)}%, lightgray ${100 - parseInt(star1)}%);             -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;`
+    ></i>
+    <i
+        class="fa-solid fa-star container__star"
+        style=`background: linear-gradient(0deg, #FFEA00 ${parseInt(star3)}%, lightgray ${100 - parseInt(star1)}%);             -webkit-background-clip: text;
+-webkit-text-fill-color: transparent;`
+    ></i>
+    <i
+        class="fa-solid fa-star container__star"
+        style=`background: linear-gradient(0deg, #FFEA00 ${parseInt(star4)}%, lightgray ${100 - parseInt(star1)}%);             -webkit-background-clip: text;
+-webkit-text-fill-color: transparent;`
+    ></i>
+    <i
+        class="fa-solid fa-star container__star"
+        style=`background: linear-gradient(0deg, #FFEA00 ${parseInt(star5)}%, lightgray ${100 - parseInt(star1)}%);             -webkit-background-clip: text;
+-webkit-text-fill-color: transparent;`
+    ></i>
+</div>
+
+<style lang="scss">
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 180px;
+        justify-content: space-evenly;
+        align-items: center;
+
+        &__star {
+            font-size: 2em; // Ajusta el tamaño según sea necesario
+        }
+    }
+</style>

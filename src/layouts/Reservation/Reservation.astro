@@ -1,0 +1,327 @@
+---
+const { title, restaurant, name, subtitle, src } = Astro.props;
+
+//Poppins
+import "@fontsource/poppins/100.css";
+import "@fontsource/poppins/200.css";
+import "@fontsource/poppins/300.css";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/600.css";
+import "@fontsource/poppins/700.css";
+import "@fontsource/poppins/800.css";
+import "@fontsource/poppins/900.css";
+
+//Staaliches
+import "@fontsource/staatliches";
+
+//Bebas Neue
+import "@fontsource/bebas-neue";
+
+//Abel
+import "@fontsource/abel";
+
+//Antonio
+import "@fontsource-variable/antonio";
+import ViewTransitions from "astro/components/ViewTransitions.astro";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<script
+			src="https://kit.fontawesome.com/a1618bce8f.js"
+			crossorigin="anonymous"></script>
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+			crossorigin=""
+		/>
+	</head>
+	<body data-restaurant={restaurant}>
+		<main class="content">
+			<header class="content__header">
+				<h1 class="content__header__title">RESERVA MESA</h1>
+				<h2 class="content__header__subtitle">
+					THE CUBE <span class="content__header__subtitle--color"
+						>{subtitle}</span>
+				</h2>
+			</header>
+			<main class="content__main">
+				<form class="content__main__form">
+					<div class="content__main__form__inpt-container">
+						<label
+							for="name"
+							class="content__main__form__inpt-container__title"
+							>Nombre</label
+						>
+						<input
+							type="text"
+							class="content__main__form__inpt-container__inpt content__main__form__inpt-container__inpt--name"
+							name="name"
+							required
+						/>
+					</div>
+					<div class="content__main__form__inpt-container">
+						<label
+							for="people"
+							class="content__main__form__inpt-container__title"
+							>Número de personas</label
+						>
+						<input
+							type="number"
+							class="content__main__form__inpt-container__inpt content__main__form__inpt-container__inpt--people"
+							name="people"
+							min="1"
+							required
+						/>
+					</div>
+					<div class="content__main__form__inpt-container">
+						<label
+							for="date"
+							class="content__main__form__inpt-container__title"
+							>Fecha</label
+						>
+						<input
+							type="date"
+							class="content__main__form__inpt-container__inpt content__main__form__inpt-container__inpt--date"
+							name="date"
+							required
+						/>
+					</div>
+					<div class="content__main__form__inpt-container">
+						<label
+							for="hour"
+							class="content__main__form__inpt-container__title"
+							>Hora</label
+						>
+						<input
+							type="time"
+							class="content__main__form__inpt-container__inpt content__main__form__inpt-container__inpt--hour"
+							name="hour"
+							placeholder="(INPUT DE HORA)"
+							required
+						/>
+					</div>
+					<button type="submit" class="content__main__form__btn"
+						>¡QUE APROVECHE!</button
+					>
+				</form>
+			</main>
+		</main>
+		<div class="video-container">
+			<video class="video-container__video" autoplay muted loop>
+				<source src={src} type="video/mp4" />
+			</video>
+		</div>
+	</body>
+</html>
+
+<style lang="scss">
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	html {
+		overflow: hidden;
+	}
+
+	body {
+		display: flex;
+		width: 100vw;
+		height: 100vh;
+		align-items: center;
+	}
+
+	.content {
+		margin-left: 100px;
+		&__header {
+			&__title {
+				font-family: "Bebas Neue", sans-serif;
+				font-size: 102px;
+				line-height: 102px;
+				font-weight: 400;
+			}
+
+			&__subtitle {
+				font-family: "Staatliches", sans-serif;
+				font-size: 60px;
+				line-height: 60px;
+				font-weight: 400;
+				margin-left: 10px;
+			}
+		}
+
+		&__main {
+			margin-left: 10px;
+			&__form {
+				display: flex;
+				flex-direction: column;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-around;
+				width: 500px;
+				gap: 10px;
+				height: 65vh;
+
+				&__inpt-container {
+					display: flex;
+					flex-direction: column;
+					width: 100%;
+
+					&__title {
+						font-family: "Poppins", sans-serif;
+						font-weight: 600;
+					}
+
+					&__inpt {
+						padding: 20px;
+						border: none;
+						outline: none;
+						height: 20px;
+
+						&--people {
+							width: 30%;
+						}
+
+						&--date {
+							width: 50%;
+						}
+
+						&--hour {
+							width: 100%;
+						}
+					}
+				}
+
+				&__btn {
+					padding: 7px;
+					border: none;
+					outline: none;
+					font-family: "Staatliches", sans-serif;
+					font-size: 61px;
+					text-align: center;
+				}
+			}
+		}
+	}
+
+	.video-container {
+		width: 500px;
+		display: flex;
+		height: 100vh;
+		align-items: center;
+		position: absolute;
+		right: 0px;
+
+		&__video {
+			width: 100%;
+			height: 90vh;
+			object-fit: cover;
+		}
+	}
+
+	[data-restaurant="1"] {
+		background-color: #ff7700;
+
+		.content {
+			&__header {
+				color: #fff;
+
+				&__subtitle {
+					&--color {
+						color: #592d00;
+					}
+				}
+			}
+
+			&__main {
+				&__form {
+					&__inpt-container {
+						&__title {
+							color: #592d00;
+						}
+
+						&__inpt {
+							border: 3px solid #603b2a;
+							border-radius: 12px;
+							font-size: 26px;
+
+							&::placeholder {
+								color: #000;
+								font-family: "Staatliches", sans-serif;
+								font-weight: 400;
+							}
+						}
+					}
+
+					&__btn {
+						background-color: #815843;
+						color: #fff;
+						border: 8px solid #603b2a;
+						border-radius: 29px;
+					}
+				}
+			}
+		}
+
+		.video-container {
+			&__video {
+				border-radius: 26px 0px 0px 26px;
+				border: 11px solid #603b2a;
+				border-right: 0px;
+			}
+		}
+	}
+
+	@media only screen and (max-width: 900px) {
+		body {
+			flex-direction: column;
+			overflow-y: scroll;
+		}
+
+		.content {
+			margin-left: 10px;
+
+			&__main {
+				&__form {
+					width: 90vw;
+
+					&__btn {
+						font-size: 40px;
+						margin-bottom: 20px;
+					}
+				}
+			}
+		}
+
+		.video-container {
+			width: 100vw;
+			height: 40vh;
+			bottom: 0px;
+			position: relative;
+
+			&__video {
+				height: 40vh;
+			}
+		}
+
+		[data-restaurant="1"] {
+			.video-container {
+				&__video {
+					border-radius: 0px;
+					border-left: 0px;
+				}
+			}
+		}
+	}
+</style>

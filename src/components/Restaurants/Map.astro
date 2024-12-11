@@ -1,0 +1,355 @@
+---
+let {
+    bC1,
+    bR,
+    bRM,
+    mapLink,
+    tC,
+    color1,
+    color2,
+    leafs = false,
+    coctail = false,
+    statue = false,
+    restaurant,
+} = Astro.props;
+
+import Leaf1 from "../../assets/Restaurants/Map/r-1/leafs-1.png";
+import Leaf2 from "../../assets/Restaurants/Map/r-1/leafs-2.png";
+import Coctail from "../../assets/Restaurants/Map/r-2/coctail.png";
+import Statue from "../../assets/Restaurants/Map/r-3/statue.png";
+
+let leafClass;
+let coctailClass;
+let statueClass;
+
+if (leafs == true) {
+    leafClass = "flex";
+} else {
+    leafClass = "none";
+}
+
+if (coctail == true) {
+    coctailClass = "flex";
+} else {
+    coctailClass = "none";
+}
+
+if (statue == true) {
+    statueClass = "flex";
+} else {
+    statueClass = "none";
+}
+---
+
+<section
+    class="container"
+    style=`background: linear-gradient(to right, ${color1} 50%, ${color2} 50%);`
+>
+    <div
+        class="container__map-container"
+        style=`border: 17px solid ${bC1}; border-radius: 0px 0px ${bR} ${bR}; `
+    >
+        <iframe
+            class="container__map-container__map"
+            style=`border-radius: 0px 0px ${bRM} ${bRM}`
+            frameborder="0"
+            scrolling="no"
+            marginheight="0"
+            marginwidth="0"
+            src={mapLink}></iframe>
+        <!-- <img src="https://staticmapmaker.com/img/google-placeholder.png" alt="" class="container__map-container__img"> -->
+    </div>
+    <a href="/thecubeday"
+        type="button"
+        class="container__btn"
+        style=`color: ${tC}; border-radius: ${bR} ${bR} 0px 0px`
+        data-restaurant={restaurant}
+    >
+        <div class="container__leafs">
+            <img
+                src={Leaf1.src}
+                style=`display: ${leafClass}`
+                class="container__leafs__img container__leafs__img--1"
+            />
+            <img
+                src={Leaf2.src}
+                style=`display: ${leafClass}`
+                class="container__leafs__img container__leafs__img--2"
+            />
+        </div>
+        <div class="container__coctail">
+            <img
+                src={Coctail.src}
+                style=`display: ${coctailClass}`
+                class="container__coctail__img"
+            />
+        </div>
+        <div class="container__statue">
+            <img
+                src={Statue.src}
+                style=`display: ${statueClass}`
+                class="container__statue__img"
+            />
+        </div>
+        <p class="container__btn__txt">RESERVAR MESA</p>
+    </a>
+</section>
+
+<style lang="scss">
+    .container {
+        width: fit-content;
+        height: 100vh;
+        width: 450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &__map-container {
+            width: 100%;
+            height: 60vh;
+            position: relative;
+            bottom: 17px;
+            transition: all 0.5s;
+            view-timeline-name: --image;
+            view-timeline-axis: inline;
+            animation-timeline: --image;
+            animation-name: top-bottom;
+            animation-range: entry 0% cover 40%;
+
+            animation-fill-mode: both;
+
+            @keyframes top-bottom {
+                from {
+                    transform: translateY(-20vh);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0px);
+                    opacity: 1;
+                }
+            }
+
+            &__map {
+                width: 100%;
+                height: 100%;
+            }
+
+            &__img {
+                width: 100%;
+                height: 100%;
+                border-radius: 0px 0px 38px 38px;
+                object-fit: cover;
+            }
+        }
+
+        &__leafs {
+            // position: relative;
+            width: 450px;
+            height: 50vh;
+            position: absolute;
+            bottom: -200px;
+            z-index: 999;
+            transition: all 1s;
+
+            &__img {
+                position: absolute;
+                width: 400px;
+                bottom: 0px;
+
+                &--1 {
+                    left: -100px;
+                }
+
+                &--2 {
+                    right: -100px;
+                }
+            }
+        }
+
+        &__coctail {
+            width: 450px;
+            position: absolute;
+            bottom: -350px;
+            z-index: 999;
+            transition: all 1s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &__img {
+                position: relative;
+                width: 400px;
+            }
+        }
+
+        &__statue {
+            width: 450px;
+            height: 50vh;
+            position: absolute;
+            bottom: -300px;
+            z-index: 999;
+            transition: all 1s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &__img {
+                position: relative;
+                width: 450px;
+            }
+        }
+
+        &__btn {
+            width: 100%;
+            height: 30vh;
+            font-size: 71px;
+            font-family: "Bebas Neue", sans-serif;
+            transition: all 0.5s;
+            view-timeline-name: --image;
+            view-timeline-axis: inline;
+            animation-timeline: --image;
+            animation-name: bottom-top;
+            animation-range: entry 0% cover 40%;
+            animation-fill-mode: both;
+            display: flex;
+            align-items: center;
+
+            @keyframes bottom-top {
+                from {
+                    transform: translateY(10vh);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(00vh);
+                    opacity: 1;
+                }
+            }
+
+
+            &:hover {
+                cursor: pointer;
+                height: 100vh;
+            }
+
+            &:hover &--leaf {
+                background-color: #8b9932;
+            }
+
+            &:hover .container__leafs {
+                bottom: 0px;
+            }
+
+            &:hover .container__coctail {
+                bottom: -150px;
+            }
+
+            &:hover .container__statue {
+                bottom: -100px;
+            }
+
+            &__txt{
+                text-align: center;
+                width: 100%;
+
+            }
+
+            // @keyframes up{
+            //     0%{
+            //         height: 30vh;
+            //     }
+
+            //     100%{
+            //         height: 90vh;
+            //     }
+            // }
+        }
+    }
+
+    [data-restaurant="day"] {
+        background-color: #815943;
+        border: 17px solid #3e1f1f;
+
+        &:hover {
+            border: 17px solid #1e361a;
+            background-color: #8b9932;
+        }
+    }
+
+    [data-restaurant="fusion"] {
+        background-color: #af0000;
+        border: 17px solid #000;
+
+        &:hover {
+            background-color: #ff9d00;
+            border: 17px solid #af5a0f;
+        }
+    }
+
+    [data-restaurant="font"] {
+        background-color: #ffa600;
+        border: 17px solid #603b2a;
+        color: #000;
+
+        &:hover {
+            background-color: #238ad3;
+            border: 17px solid #165b8c;
+            color: #ffff !important;
+        }
+    }
+
+    @media only screen and (max-width: 900px) {
+        .container {
+            height: 92vh;
+
+            &__leafs,
+            &__coctail,
+            &__statue {
+                display: none;
+            }
+        }
+    }
+
+    @media only screen and (min-width: 1600px) {
+        .container {
+            width: 644px;
+
+            &__leafs {
+                &__img {
+                    width: 600px;
+
+                    &--1 {
+                    }
+
+                    &--2 {
+                        right: -287px;
+                    }
+                }
+            }
+
+            &__coctail {
+                &__img {
+                    left: 85px;
+                    width: 600px;
+                }
+            }
+
+            &__statue {
+                width: 644px;
+
+                &__img {
+                    width: 680px;
+                }
+            }
+
+            &__btn {
+                &:hover .container__coctail {
+                    bottom: -200px;
+                }
+
+                &:hover .container__statue {
+                    bottom: -137px;
+                }
+            }
+        }
+    }
+</style>

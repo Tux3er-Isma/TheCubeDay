@@ -1,0 +1,77 @@
+---
+
+---
+
+<nav class="nav m-nav">
+    <ul class="nav__list-container">
+        <a href="#i" target="_self"><li class="nav__list-container__items">INICIO</li></a>
+        <a href="#c"><li class="nav__list-container__items">CARTA</li></a>
+        <a href="#r"><li class="nav__list-container__items">RESTAURANTES</li></a>
+        <a href="#n"><li class="nav__list-container__items">NUESTRA HISTORIA</li></a>
+    </ul>
+    <hr class="nav__mark" />
+    <h1 class="nav__title">THE CUBE</h1>
+</nav>
+
+<style lang="scss">
+    .nav {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        transition: all .3s;
+        position: fixed;
+        z-index: 999;
+        overflow: visible;
+        -webkit-overflow-scrolling: touch;
+        -webkit-overflow-scrolling: auto !important;
+
+        &__list-container {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            list-style-type: none;
+
+            &__items {
+                font-family: "Staatliches", system-ui;
+            }
+        }
+
+        &__mark {
+            width: 100%;
+            border: 2px solid #000;
+            margin-bottom: 10px;
+        }
+
+        &__title {
+            font-weight: 900;
+            font-size: 32px;
+            // margin-left: 60px;
+            width: fit-content;
+            margin-right: 10px;
+        }
+    }
+
+    .glass {
+        /* From https://css.glass */
+        background: rgba(255, 255, 255, 0.38);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(14.4px);
+        -webkit-backdrop-filter: blur(14.4px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+</style>
+
+<script is:inline>
+    window.addEventListener("scroll", function () {
+        const nav = document.querySelector(".m-nav");
+        nav.classList.add('glass');
+        if (window.scrollY > 1){
+            nav.classList.add('glass')
+        } else if (window.scrollY == 0) {
+            nav.classList.remove('glass')
+        }
+    });
+</script>

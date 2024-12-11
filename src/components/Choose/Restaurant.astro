@@ -1,0 +1,42 @@
+---
+const { src, title, title2, color, location } = Astro.props;
+---
+
+<div class="card">
+    <img src={src.src} alt={title} class="card__img">
+    <h1 class="card__title">{title} <span class="card__title--color" style=`color: ${color};`>{title2}</span></h1>
+    <h2 class="card__location">{location}</h2>
+</div>
+
+<style lang="scss">
+    .card{
+        display: flex;
+        flex-direction: column;
+        width: 25vw;
+
+        &__img{
+            width: 100%;
+        }
+
+        &__title{
+            font-family: 'Staatliches', sans-serif;
+            font-weight: 400;
+            font-size: 50px;
+            width: fit-content;
+        }
+
+        &__location{
+            font-family: 'Abel', sans-serif;
+            font-weight: 400;
+            font-size: 14.5px;
+            width: 80%;
+            font-size: 20px;
+            width: fit-content;
+        }
+    }
+
+    @media only screen and (min-width: 1600px){
+        .card{
+        }
+    }
+</style>

@@ -1,0 +1,125 @@
+---
+import Section1 from "./Section1.astro";
+import Section2 from "./Section2.astro";
+
+import Img from "../../assets/Aside/img-1.png";
+---
+
+<aside class="aside" id="nuestra-historia">
+    <Section1 />
+    <div class="aside__img-container">
+        <img src={Img.src} class="aside__img-container__img" />
+    </div>
+    <Section2 />
+    <div class="aside__btn-container">
+        <button type="button" class="aside__btn">
+            <p class="aside__btn__txt">RESERVAR MESA</p>
+            <p class="aside__btn__credits">Página web realizada por: <br><a class="aside__btn__credits--red" href="https://pymeweb.team" target="_blank">PymeWebTeam</a></p>
+        </button>
+    </div>
+</aside>
+
+<style lang="scss">
+    .aside {
+        display: flex;
+        width: fit-content;
+        margin-left: 100px;
+
+        &__img-container {
+            margin-left: 100px;
+            margin-right: 100px;
+            width: 300px;
+            height: 100vh;
+            position: relative;
+            view-timeline-name: --image;
+            view-timeline-axis: inline;
+            animation-timeline: --image;
+            animation-name: bottom-top;
+            animation-range: entry 0% cover 40%;
+
+            animation-fill-mode: both;
+
+            @keyframes bottom-top {
+                from {
+                    transform: translateY(20vh);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateY(0px);
+                    opacity: 1;
+                }
+            }
+
+            &__img {
+                object-fit: contain;
+                width: 100%;
+                position: absolute;
+                bottom: -50px;
+            }
+        }
+
+        &__btn-container {
+            position: relative;
+        }
+
+        &__btn {
+            margin-left: 100px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffae00;
+            width: 300px;
+            transition: all 0.5s;
+            position: relative;
+
+            &__txt {
+                font-family: "Bebas Neue";
+                width: 400px;
+                font-size: 60px;
+                transform: rotate(270deg);
+                transition: all 0.5s;
+            }
+
+            &__credits{
+                position: absolute;
+                bottom: 40px;
+                font-family: 'Poppins', sans-serif;
+                transition: all .5s;
+
+                &--red{
+                    color: #ff2e2e;
+                    font-weight: bold;
+
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            &:hover {
+                cursor: pointer;
+                background-color: #000;
+            }
+
+            &:hover &__txt {
+                scale: 1.6;
+                color: #ffae00;
+            }
+
+            &:hover &__credits{
+                color: #fff;
+            }
+        }
+    }
+
+    @media only screen and (max-width: 900px) {
+        .aside {
+            &__img-container {
+                &__img {
+                    bottom: 50px;
+                }
+            }
+        }
+    }
+</style>
