@@ -272,7 +272,7 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 		flex-direction: column;
 		justify-content: center;
 
-		&__close{
+		&__close {
 			font-size: 30px;
 			position: absolute;
 			right: 30px;
@@ -481,23 +481,22 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 			}
 		}
 
-		.success-popup{
-			background-color: #FEEDDE;
+		.success-popup {
+			background-color: #feedde;
 			border: 15px solid #603b2a;
 			border-radius: 33px;
 
-			&__close{
+			&__close {
 				color: #603b2a;
 			}
 
-			&__content{
-
-				&__title{
-					color: #3F1A09;
+			&__content {
+				&__title {
+					color: #3f1a09;
 				}
 
-				&__error{
-					color: #603B2A;
+				&__error {
+					color: #603b2a;
 				}
 			}
 		}
@@ -557,22 +556,21 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 			}
 		}
 
-		.success-popup{
-			background-color: #FEEDDE;
-			border: 15px solid #AF0000;
+		.success-popup {
+			background-color: #feedde;
+			border: 15px solid #af0000;
 
-			&__close{
-				color: #AF0000 ;
+			&__close {
+				color: #af0000;
 			}
 
-			&__content{
-
-				&__title{
-					color: #8C1313;
+			&__content {
+				&__title {
+					color: #8c1313;
 				}
 
-				&__error{
-					color: #AF0000;
+				&__error {
+					color: #af0000;
 				}
 			}
 		}
@@ -634,23 +632,22 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 			}
 		}
 
-		.success-popup{
+		.success-popup {
 			background-color: #fff;
-			border: 15px solid #DF7802;
+			border: 15px solid #df7802;
 			border-radius: 33px;
 
-			&__close{
-				color: #DF7802;
+			&__close {
+				color: #df7802;
 			}
 
-			&__content{
-
-				&__title{
-					color: #DF7802;
+			&__content {
+				&__title {
+					color: #df7802;
 				}
 
-				&__error{
-					color: #DF7802;
+				&__error {
+					color: #df7802;
 				}
 			}
 		}
@@ -750,34 +747,12 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 	}
 </style>
 
-<script is:inline>
-	// Selecciona el elemento <select>
-	const hourSelect = document.getElementById("hour");
-
-	// Función para generar opciones de tiempo
-	const generateTimeOptions = () => {
-		let options = "";
-		let startHour = 10;
-		let endHour = 23.5; // 23:30 como 23.5 en pasos de media hora
-
-		for (let time = startHour; time <= endHour; time += 0.5) {
-			const hour = Math.floor(time); // Parte entera (horas)
-			const minutes = time % 1 === 0 ? "00" : "30"; // Media hora
-			const formattedTime = `${hour.toString().padStart(2, "0")}:${minutes}`;
-			options += `<option value="${formattedTime}">${formattedTime}</option>`;
-		}
-
-		return options;
-	};
-
-	// Añadir las opciones al select
-	hourSelect.innerHTML = generateTimeOptions();
-</script>
+<script is:inline></script>
 
 <script is:inline>
 	const errorPopup = document.querySelector(".error-popup");
 	const error = document.querySelector(".error-popup__content__error");
-	const successPopup = document.querySelector(".centered-2")
+	const successPopup = document.querySelector(".centered-2");
 	const closeBtn = document.querySelector(".success-popup__close");
 	const form = document.querySelector(".content__main__form");
 	const nameInput = document.querySelector(
@@ -792,6 +767,7 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 	const timeInput = document.querySelector(
 		".content__main__form__inpt-container__inpt--hour",
 	);
+	const hourSelect = document.getElementById("hour");
 	const allergyInput = document.querySelector(
 		".content__main__form__inpt-container__inpt--allergy",
 	);
@@ -819,11 +795,58 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 	dateInput.addEventListener("change", () => {
 		const selectedDate = new Date(dateInput.value);
 		const isToday = selectedDate.toDateString() === today.toDateString();
+
+		if (dateInput.value == formatDate(today)) {
+			console.log(today.getHours() + ':' +  today.getMinutes());
+			const generateTimeOptions = () => {
+				let options = "";
+				let startHour = today.getHours() + 1;
+				let endHour = 23.5; // 23:30 como 23.5 en pasos de media hora
+
+				if (today.getMinutes() < 30){
+					startHour = today.getHours() + 0.5;
+				} else if (today.getMinutes() >= 30){
+					startHour = today.getHours() + 1;
+				}
+
+				for (let time = startHour; time <= endHour; time += 0.5) {
+					const hour = Math.floor(time); // Parte entera (horas)
+					const minutes = time % 1 === 0 ? "00" : "30"; // Media hora
+					const formattedTime = `${hour.toString().padStart(2, "0")}:${minutes}`;
+					options += `<option value="${formattedTime}">${formattedTime}</option>`;
+				}
+
+				return options;
+			};
+			hourSelect.innerHTML = generateTimeOptions();
+		} else {
+			const generateTimeOptions = () => {
+				let options = "";
+				let startHour = 10;
+				let endHour = 23.5; // 23:30 como 23.5 en pasos de media hora
+
+				for (let time = startHour; time <= endHour; time += 0.5) {
+					const hour = Math.floor(time); // Parte entera (horas)
+					const minutes = time % 1 === 0 ? "00" : "30"; // Media hora
+					const formattedTime = `${hour.toString().padStart(2, "0")}:${minutes}`;
+					options += `<option value="${formattedTime}">${formattedTime}</option>`;
+				}
+
+				return options;
+			};
+			hourSelect.innerHTML = generateTimeOptions();
+		}
 	});
 
-	closeBtn.addEventListener('click', () =>{
-		successPopup.style.display = 'none';
-	})
+	// Selecciona el elemento <select>
+
+	// Función para generar opciones de tiempo
+
+	// Añadir las opciones al select
+
+	closeBtn.addEventListener("click", () => {
+		successPopup.style.display = "none";
+	});
 
 	form.addEventListener("submit", async (event) => {
 		event.preventDefault();
@@ -858,6 +881,14 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 			isValid = false;
 		}
 
+		if (peopleValue.length > 25) {
+			error.innerHTML = "El número máximo de personas es 25";
+			errorPopup.style.animation = "appear .4s forwards";
+			setTimeout(() => {
+				errorPopup.style.animation = "disappear 1.5s forwards";
+			}, 2000);
+		}
+
 		if (dateValue === "") {
 			error.innerHTML = "Debe seleccionar una fecha.";
 			errorPopup.style.animation = "appear .4s forwards";
@@ -877,7 +908,7 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 		}
 
 		if (isValid) {
-			successPopup.style.display = 'flex';
+			successPopup.style.display = "flex";
 			try {
 				const res = await fetch("/api/reservation.json", {
 					method: "POST",
@@ -886,7 +917,7 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 					},
 					body: JSON.stringify({
 						name: nameValue,
-						people: peopleValue, // Corregir el error tipográfico aquí
+						people: peopleValue,
 						date: dateValue,
 						hour: timeValue,
 						restaurant: restaurant,
