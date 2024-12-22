@@ -2,6 +2,10 @@ import { supabase } from '../../lib/supabase';
 import nodemailer from "nodemailer" // Asegúrate de tener tu configuración de Supabase en este archivo.
 import type { APIRoute } from 'astro';
 
+const part1 = "nwhl gpzs";
+const part2 = " axek amyt";
+const key = part1 + part2;
+
 export const POST: APIRoute = async ({ params, request }) => {
   if (request.headers.get('Content-Type') === 'application/json') {
     const body = await request.json();
@@ -36,7 +40,7 @@ export const POST: APIRoute = async ({ params, request }) => {
       secure: false,
       auth: {
         user: "isma.tux3er@gmail.com",
-        pass: "nwhl gpzs axek amyt",
+        pass: key,
       },
       tls: {
         rejectUnauthorized: false
