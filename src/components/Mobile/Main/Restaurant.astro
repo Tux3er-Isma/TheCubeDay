@@ -19,6 +19,7 @@ const {
     btnC,
     btnBG,
     sticker,
+    link
 } = Astro.props;
 ---
 
@@ -65,12 +66,12 @@ const {
             src={mapLink}></iframe>
         <!-- <img src="https://staticmapmaker.com/img/google-placeholder.png" alt="" class="container__map-container__img"> -->
     </div>
-    <button
+    <a href={link}><button
         type="button"
         class="container__btn"
         style=`background-color: ${btnBG}; border-top: 12px solid ${btnBC}; border-bottom: 12px solid ${btnBC}; color: ${btnC}`
         >RESERVAR MESA</button
-    >
+    ></a>
 </div>
 
 <style lang="scss">
@@ -92,11 +93,6 @@ const {
                 position: relative;
                 transition: all 0.5s;
                 filter: drop-shadow(7px 4px 0.7px #000000bf);
-
-                &:hover {
-                    scale: 1.1;
-                    filter: drop-shadow(7px 20px 7px #000000c1);
-                }
             }
         }
 
@@ -104,10 +100,12 @@ const {
             padding-top: 20px;
             font-family: "Bebas Neue", sans-serif;
             font-size: 110px;
+            line-height: 100px;
         }
 
         &__img-container {
             display: flex;
+            height: fit-content;
 
             &__img {
                 &--1 {
@@ -125,6 +123,7 @@ const {
             height: 293px;
             display: flex;
             justify-content: center;
+            margin-bottom: 50px;
 
             &__map {
                 width: 110%;
@@ -133,7 +132,6 @@ const {
         }
 
         &__btn {
-            margin-top: 50px;
             width: 100vw;
             font-family: "Bebas Neue";
             font-size: 63.41px;

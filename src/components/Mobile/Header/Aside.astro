@@ -4,10 +4,12 @@ import Img2 from "../../../assets/Header/slider-1.png";
 ---
 
 <aside class="container">
-    <button type="button" class="container__btn">RESERVAR MESA</button>
+    <a href="/choose"><button type="button" class="container__btn">RESERVAR MESA</button></a>
     <div class="container__part">
         <img src={Img1.src} class="container__part__img container__part__img--1">
-        <img src={Img2.src} class="container__part__img container__part__img--2">
+        <video class="container__part__img container__part__img--2" autoplay muted loop playsinline>
+            <source src="/thecubeday.mp4" type="video/mp4">
+        </video>
     </div>
 </aside>
 
@@ -36,7 +38,7 @@ import Img2 from "../../../assets/Header/slider-1.png";
                     height: 301px;
                     position: absolute;
                     left: -100px;
-                    z-index: 2;
+                    z-index: 10;
                     touch-action: none;
                 }
 
@@ -47,6 +49,7 @@ import Img2 from "../../../assets/Header/slider-1.png";
                     border-radius: 23px;
                     transform: translateX(130px);
                     z-index: 1;
+                    pointer-events: none;
                 }
             }
         }

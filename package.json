@@ -11,12 +11,15 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/netlify": "^5.5.3",
     "@fontsource-variable/antonio": "^5.1.0",
     "@fontsource/abel": "^5.1.0",
     "@fontsource/bebas-neue": "^5.1.0",
     "@fontsource/poppins": "^5.1.0",
     "@fontsource/staatliches": "^5.1.0",
+    "@supabase/supabase-js": "^2.47.6",
     "astro": "^4.16.4",
+    "nodemailer": "^6.9.16",
     "typescript": "^5.6.3"
   },
   "devDependencies": {

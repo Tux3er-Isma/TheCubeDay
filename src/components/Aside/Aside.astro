@@ -12,7 +12,7 @@ import Img from "../../assets/Aside/img-1.png";
     </div>
     <Section2 />
     <div class="aside__btn-container">
-        <button type="button" class="aside__btn">
+        <button type="button" class="aside__btn" onclick="window.location.href='/choose'">
             <p class="aside__btn__txt">RESERVAR MESA</p>
             <p class="aside__btn__credits">Página web realizada por: <br><a class="aside__btn__credits--red" href="https://pymeweb.team" target="_blank">PymeWebTeam</a></p>
         </button>
@@ -31,6 +31,8 @@ import Img from "../../assets/Aside/img-1.png";
             width: 300px;
             height: 100vh;
             position: relative;
+            display: flex;
+            justify-content: center;
             view-timeline-name: --image;
             view-timeline-axis: inline;
             animation-timeline: --image;
@@ -52,9 +54,9 @@ import Img from "../../assets/Aside/img-1.png";
 
             &__img {
                 object-fit: contain;
-                width: 100%;
+                width: 600px;
                 position: absolute;
-                bottom: -50px;
+                bottom: -75px;
             }
         }
 

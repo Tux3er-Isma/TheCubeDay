@@ -1,5 +1,5 @@
 ---
-const { src1, src2, src3, src4, restaurant, bR } = Astro.props;
+const { src1, src2, src3, src4, restaurant, bR, text1, text2, text3, text4 } = Astro.props;
 console.log(bR);
 ---
 
@@ -10,13 +10,13 @@ console.log(bR);
     >
         <img
             src={src1}
-            alt="Food Image 1"
+            alt={text1}
             class="gallery__img gallery__img--1"
             style=`border-radius: ${bR};`
         />
         <div class="gallery__overlay">
             <div class="gallery__info">
-                <p>Arepas</p>
+                <p>{text1}</p>
             </div>
         </div>
     </div>
@@ -26,13 +26,13 @@ console.log(bR);
     >
         <img
             src={src2}
-            alt="Food Image 2"
+            alt={text2}
             class="gallery__img gallery__img--2"
             style=`border-radius: ${bR};`
         />
         <div class="gallery__overlay">
             <div class="gallery__info">
-                <p>Arepas</p>
+                <p>{text2}</p>
             </div>
         </div>
     </div>
@@ -42,13 +42,13 @@ console.log(bR);
     >
         <img
             src={src3}
-            alt="Food Image 3"
+            alt={text3}
             class="gallery__img gallery__img--3"
             style=`border-radius: ${bR};`
         />
         <div class="gallery__overlay">
             <div class="gallery__info">
-                <p>Arepas</p>
+                <p>{text3}</p>
             </div>
         </div>
     </div>
@@ -58,13 +58,13 @@ console.log(bR);
     >
         <img
             src={src4}
-            alt="Food Image 4"
+            alt={text4}
             class="gallery__img gallery__img--4"
             style=`border-radius: ${bR};`
         />
         <div class="gallery__overlay">
             <div class="gallery__info">
-                <p>Arepas</p>
+                <p>{text4}</p>
             </div>
         </div>
     </div>
@@ -130,25 +130,27 @@ console.log(bR);
             left: 10px;
             color: #fff;
             opacity: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
         }
     }
 
     [data-restaurant="1"] {
-        width: 880px;
+        width: 916px;
 
         .gallery__img,
         .gallery__container {
             &--1 {
-                width: 323px;
+                width: 343px;
             }
             &--2 {
-                width: 550px;
+                width: 565px;
             }
             &--3 {
-                width: 550px;
+                width: 565px;
             }
             &--4 {
-                width: 323px;
+                width: 343px;
             }
         }
     }
@@ -187,7 +189,7 @@ console.log(bR);
             &--1 {
                 margin-right: 20px;
                 height: 300px;
-                width: 445px;
+                width: 605px;
             }
 
             &--2 {

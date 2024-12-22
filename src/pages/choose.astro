@@ -12,26 +12,39 @@ import font from "../assets/Choose/font.png";
     <main class="main">
         <Restaurant
             src={day}
+            videoSrc="/thecubeday.mp4"
             title="The Cube "
             title2="Day"
             color="#FF4800"
             location="Carrer dels Castellers de Tarragona, 1, local 3, 43002 Tarragona"
+            link="/thecubeday"
         />
         <Restaurant
             src={fusion}
+            videoSrc="/thecubefusion.mp4"
             title="The Cube "
             title2="Fusion"
             color="#AF0000"
-            location="43002 Tarragona"
+            location="Calle Mayor 30, 43002 Tarragona"
+            link="/thecubefusion"
         />
         <Restaurant
             src={font}
+            videoSrc="/thecubedelafont.mp4"
             title="The Cube "
             title2="De La Font"
             color="#FF9500"
             location="Plaça de la Font, 31, 43003 Tarragona"
+            link="/thecubedelafont"
         />
     </main>
+    <button class="tel" onclick="window.location.href='tel:+34657063825';">
+        <i class="fa-solid fa-phone tel__icon"></i>
+        <p class="tel__txt">657 06 38 25</p>
+    </button>
+    <!-- <button onclick="window.open('https://www.amazon.com', '_blank')">
+        Llamar al restaurante
+    </button> -->
 </Layout>
 
 <style lang="scss">
@@ -62,8 +75,35 @@ import font from "../assets/Choose/font.png";
     .main {
         display: flex;
         width: 100%;
-        justify-content: space-around;
+        justify-content: center;
+        gap: 5vw;
         margin-bottom: 20px;
+    }
+
+    .tel{
+        display: flex;
+        gap: 15px;
+        background-color: #FF4800;
+        color: #fff;
+        padding: 23px;
+        border-radius: 20px;
+        position: absolute;
+        width: 200px;
+        justify-content: center;
+        font-family: 'Staatliches', sans-serif;
+        font-size: 25px;
+        transform: rotate(-90deg);
+        right: -75px;
+        cursor: pointer;
+        transition: all .5s;
+        border: 1px solid #ffff;
+
+
+        &:hover{
+            background-color: #fff;
+            color: #FF4800;
+            border: 1px solid #FF4800;
+        }
     }
 
     // .footer{
@@ -92,6 +132,11 @@ import font from "../assets/Choose/font.png";
             align-items: center;
             gap: 40px;
         }
+
+        .tel{
+            position: fixed;
+            bottom: 40vh;
+        }
     }
 
     @media only screen and (min-width: 1600px) {
@@ -99,5 +144,31 @@ import font from "../assets/Choose/font.png";
             position: relative;
             bottom: 60px;
         }
+
+        .tel{
+            bottom: -15px;
+            right: auto;
+            transform: rotate(0deg);
+            scale: 1.3;
+        }
     }
 </style>
+
+<script is:inline>
+    const videosRutes = ["/thecubeday.mp4", "/thecubefusion.mp4", "/thecubedelafont.mp4"];
+    const cards = document.querySelectorAll('.card');
+    for (let i = 0; i < 3; i++){
+        let img = cards[i].children[0];
+        let video = cards[i].children[1];
+
+        img.addEventListener('mouseover', () =>{
+            img.style.display = 'none';
+            video.style.display = 'inline-block'
+        })
+
+        video.addEventListener('mouseleave', () =>{
+            video.style.display = 'none';
+            img.style.display = 'inline-block';
+        })
+    }
+</script>

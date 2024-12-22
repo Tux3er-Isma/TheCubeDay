@@ -7,7 +7,7 @@ import Img3 from "../../assets/Restaurants/r-3/img-1.png";
 <div class="slider-container">
     <div class="slider-container__wrapper">
         <video class="slider-container__wrapper__img" autoplay muted loop>
-            <source src="/primer-main.mp4" type="video/mp4">
+            <source src="/thecubeday.mp4" type="video/mp4">
         </video>
 <!-- 
         <img
@@ -50,12 +50,13 @@ import Img3 from "../../assets/Restaurants/r-3/img-1.png";
             display: flex;
             width: 100%;
             transition: transform 0.5s ease-in-out;
+            scroll-snap-type: x mandatory;
 
             &__img {
-                width: 100%;
+                width: 45vw;
                 height: 100vh;
                 object-fit: cover;
-                // scroll-snap-align: center;
+                scroll-snap-align: center;
                 filter: grayscale(100%) brightness(50%) saturate(100%);
                 transition: all .5s;
 
@@ -201,6 +202,11 @@ import Img3 from "../../assets/Restaurants/r-3/img-1.png";
     @media only screen and (min-width: 1600px) {
         .slider-container {
             &__wrapper {
+
+                &__img{
+                    width: 100%;
+                }
+
                 &__btn-container {
                     &__btn {
                         font-size: 101px;
@@ -244,3 +250,34 @@ import Img3 from "../../assets/Restaurants/r-3/img-1.png";
         });
     });
 </script> -->
+<script is:inline>
+    let currentSlide = 0;
+    const slider = document.querySelector(".slider-container__wrapper");
+    const slides = document.querySelectorAll(".slider-container__wrapper__img");
+    const dots = document.querySelectorAll(".slider-container__dots-container__dot");
+    const totalSlides = slides.length;
+
+    function showSlide(index) {
+        slider.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((dot) => dot.classList.remove("active"));
+        dots[index].classList.add("active");
+        currentSlide = index;
+    }
+
+    // Navegación automática
+    function autoSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        showSlide(currentSlide);
+    }
+
+    let slideInterval = setInterval(autoSlide, 3000); // Cambiar cada 3 segundos
+
+    // Permitir que los usuarios hagan clic en los puntitos
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+            clearInterval(slideInterval); // Detener el deslizamiento automático
+            showSlide(index); // Mostrar el video seleccionado
+            slideInterval = setInterval(autoSlide, 3000); // Reiniciar el intervalo
+        });
+    });
+</script>

@@ -1,32 +1,59 @@
 ---
-const { src, title, title2, color, location } = Astro.props;
+const { src, videoSrc, title, title2, color, location, link } = Astro.props;
 ---
 
-<div class="card">
-    <img src={src.src} alt={title} class="card__img">
-    <h1 class="card__title">{title} <span class="card__title--color" style=`color: ${color};`>{title2}</span></h1>
+<a href=`${link}` target="_blank"><div class="card">
+    <img src={src.src} alt={title} class="card__img" />
+    <video autoplay muted loop class="card__video">
+        <source src={videoSrc} />
+    </video>
+    <h1 class="card__title">
+        {title}
+        <span class="card__title--color" style=`color: ${color};`>{title2}</span
+        >
+    </h1>
     <h2 class="card__location">{location}</h2>
 </div>
+</a>
 
 <style lang="scss">
-    .card{
+    .card {
         display: flex;
         flex-direction: column;
         width: 25vw;
+        transition: all 0.4s;
 
-        &__img{
-            width: 100%;
+        &:hover {
+            cursor: pointer;
+            scale: 1.13;
         }
 
-        &__title{
-            font-family: 'Staatliches', sans-serif;
+        &__video{
+            display: none;
+            width: 100%;
+            transition: all 0.4s; /* Asegura una transición suave */
+            border-radius: 34px;
+            height: 305px;
+            object-fit: cover;
+        }
+
+        &__img {
+            width: 100%;
+            transition: all 0.4s; /* Asegura una transición suave */
+            border-radius: 34px;
+        }
+
+      
+
+        &__title {
+            font-family: "Staatliches", sans-serif;
             font-weight: 400;
-            font-size: 50px;
+            font-size: 40px;
             width: fit-content;
         }
 
-        &__location{
-            font-family: 'Abel', sans-serif;
+        &__location {
+            font-family: "Abel", sans-serif;
             font-weight: 400;
             font-size: 14.5px;
             width: 80%;
@@ -35,8 +62,26 @@ const { src, title, title2, color, location } = Astro.props;
         }
     }
 
-    @media only screen and (min-width: 1600px){
+    @media only screen and (max-width: 480px){
         .card{
+            width: 300px;
+        }
+    }
+
+    @media only screen and (min-width: 1600px) {
+        .card {
+
+            &__img{
+                height: 457.27px;
+            }
+
+            &__video{
+                height: 457.27px;
+            }
+
+            &__title {
+                font-size: 60px;
+            }
         }
     }
 </style>

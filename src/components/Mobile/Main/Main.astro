@@ -1,11 +1,16 @@
 ---
 import Section1 from "./Section1.astro";
+import Mid from "./Mid.astro";
 import Restaurant from "./Restaurant.astro";
 import Aside from "./Aside.astro";
 import Section2 from "./Section2.astro";
 
 import r1Img1 from "../../../assets/Restaurants/r-1/img-1.png";
 import r1Img2 from "../../../assets/Restaurants/r-1/img-2.png";
+import r2Img1 from "../../../assets/Restaurants/r-2/img-1.png";
+import r2Img2 from "../../../assets/Restaurants/r-2/img-2.png";
+import r3Img1 from "../../../assets/Restaurants/r-3/img-1.png";
+import r3Img2 from "../../../assets/Restaurants/r-3/img-2.png";
 
 import Sticker1 from "../../../assets/Restaurants/r-1/sticker-1.png";
 import Sticker2 from "../../../assets/Restaurants/r-2/sticker-2.png";
@@ -14,6 +19,7 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
 
 <main class="main">
     <Section1 />
+    <Mid></Mid>
     <div class="main__restaurant" id="r">
         <Restaurant
             title="THE CUBE "
@@ -34,12 +40,14 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
             btnBC="#603B2A"
             btnC="#fff"
             sticker={Sticker1}
+            link="/thecubeday"
         />
         <Restaurant
             title="THE CUBE "
-            title2="FUSION"
-            src1={r1Img2}
-            src2={r1Img1}
+            title2="FUS"
+            title3="ION"
+            src1={r2Img2}
+            src2={r2Img1}
             w1="345"
             h1="382"
             w2="345"
@@ -54,12 +62,13 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
             btnBC="#000"
             btnC="#fff"
             sticker={Sticker2}
+            link="thecubefusion"
         />
         <Restaurant
             title="THE CUBE "
             title2="DE LA "
             title3="FONT"
-            src1={r1Img2}
+            src1={r3Img2}
             src2={r1Img1}
             w1="345"
             h1="382"
@@ -75,11 +84,12 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
             btnBC="#603B2A"
             btnC="#191a1c"
             sticker={Sticker3}
+            link="thecubedelafont"
         />
     </div>
     <Aside />
     <Section2 />
-    <button type="button" class="main__btn">RESERVAR MESA</button>
+    <a href="/choose"><button type="button" class="main__btn">RESERVAR MESA</button></a>
 </main>
 
 <style lang="scss">

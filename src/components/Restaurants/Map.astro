@@ -11,6 +11,7 @@ let {
     coctail = false,
     statue = false,
     restaurant,
+    link
 } = Astro.props;
 
 import Leaf1 from "../../assets/Restaurants/Map/r-1/leafs-1.png";
@@ -56,10 +57,10 @@ if (statue == true) {
             scrolling="no"
             marginheight="0"
             marginwidth="0"
-            src={mapLink}></iframe>
+            src={mapLink} title="THECUBE"></iframe>
         <!-- <img src="https://staticmapmaker.com/img/google-placeholder.png" alt="" class="container__map-container__img"> -->
     </div>
-    <a href="/thecubeday"
+    <a href={link}
         type="button"
         class="container__btn"
         style=`color: ${tC}; border-radius: ${bR} ${bR} 0px 0px`
