@@ -673,7 +673,7 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 
 					&__btn {
 						font-size: 40px;
-						margin-bottom: 20px;
+						margin-bottom: 200px;
 					}
 				}
 			}
@@ -700,7 +700,7 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 
 					&__btn {
 						font-size: 40px;
-						margin-bottom: 20px;
+						margin-bottom: 200px;
 					}
 				}
 			}
@@ -879,14 +879,13 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 				errorPopup.style.animation = "disappear 1.5s forwards";
 			}, 2000);
 			isValid = false;
-		}
-
-		if (peopleValue.length > 25) {
+		} else if (parseInt(peopleValue) > 25) {
 			error.innerHTML = "El número máximo de personas es 25";
 			errorPopup.style.animation = "appear .4s forwards";
 			setTimeout(() => {
 				errorPopup.style.animation = "disappear 1.5s forwards";
 			}, 2000);
+			isValid = false;
 		}
 
 		if (dateValue === "") {
