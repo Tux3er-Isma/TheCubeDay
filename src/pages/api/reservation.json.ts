@@ -2,8 +2,8 @@ import { supabase } from '../../lib/supabase';
 import nodemailer from "nodemailer" // Asegúrate de tener tu configuración de Supabase en este archivo.
 import type { APIRoute } from 'astro';
 
-const part1 = "nwhl gpzs";
-const part2 = " axek amyt";
+const part1 = "re_bJkGNcSk";
+const part2 = "_CCwuGhcDx6L2AqxNmvLvkSBR";
 const key = part1 + part2;
 
 export const POST: APIRoute = async ({ params, request }) => {
@@ -12,6 +12,14 @@ export const POST: APIRoute = async ({ params, request }) => {
     const { name, people, date, hour, restaurant, allergy } = body;
 
     let allergyTxt;
+    let from;
+    if (restaurant == "DAY"){
+      from = "thecubeday@thecubeworld.net";
+    } else if (restaurant == 'FUSION'){
+      from = "thecubefusion@thecubeworld.net";
+    } else if (restaurant == 'DE LA FONT'){
+      from = "thecubedelafont@thecubeworld.net";
+    }
 
     if (allergy == null){
       allergyTxt = "No hay alergias"
@@ -35,11 +43,11 @@ export const POST: APIRoute = async ({ params, request }) => {
       ])
       .select();
     let mailTransporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
+      host: "smtp.resend.com",
       port: 587,
       secure: false,
       auth: {
-        user: "isma.tux3er@gmail.com",
+        user: "resend",
         pass: key,
       },
       tls: {
@@ -57,7 +65,7 @@ export const POST: APIRoute = async ({ params, request }) => {
 
     let mailDetails = ([
       {
-        from: "isma.tux3er@gmail.com",
+        from: from,
         to: "pymewebteam@gmail.com",
         subject: `Tienes una nueva reserva de THECUBE${restaurant.toUpperCase()}`,
         html: `
