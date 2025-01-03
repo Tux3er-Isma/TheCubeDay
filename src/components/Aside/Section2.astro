@@ -15,9 +15,9 @@ import Img2 from "../../assets/Aside/img-2.png";
             sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
             mollit anim id est laborum."
         </p>
-        <img src={Img1.src} class="section__content__img" />
+        <img src={Img1.src} class="section__content__img" alt="TheCubeWorld" />
     </div>
-    <img src={Img2.src} class="section__img" />
+    <img src={Img2.src} class="section__img" alt="TheCubeWorld" />
 </section>
 
 <style lang="scss">
@@ -114,7 +114,7 @@ import Img2 from "../../assets/Aside/img-2.png";
             animation-name: fade-in;
             animation-range: entry 0% cover 40%;
             animation-fill-mode: both;
-            transition: all .5s;
+            transition: all 0.5s;
 
             @keyframes fade-in {
                 from {
@@ -127,7 +127,7 @@ import Img2 from "../../assets/Aside/img-2.png";
                 }
             }
 
-            &:hover{
+            &:hover {
                 transform: scale(1.1);
                 filter: drop-shadow(10px 10px 10px #000000);
             }

@@ -1,5 +1,5 @@
 ---
-const { title, restaurant, name, subtitle, src } = Astro.props;
+const { title, restaurant, name, subtitle, src, logo } = Astro.props;
 
 //Poppins
 import "@fontsource/poppins/100.css";
@@ -30,9 +30,14 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="description" content="Comida venezolana en Tarragona | The Cube" />
+		<meta name="keywords" content="TheCubeWorld, TheCubeDay, TheCubeFusion, TheCubeDeLaFont, Comida Venezolana">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="canonical" href="https://thecubeworld.net"/>
+		<meta property="og:locale" content="es_ES">
+		<meta property="og:title" content="TheCubeWorld">
+		<meta property="og:site_name" content="TheCubeWorld">
+		<link rel="icon" href={logo.src} type="image/x-icon" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<script
