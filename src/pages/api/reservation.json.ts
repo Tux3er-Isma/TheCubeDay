@@ -66,7 +66,7 @@ export const POST: APIRoute = async ({ params, request }) => {
     let mailDetails = ([
       {
         from: from,
-        to: "pymewebteam@gmail.com",
+        to: "thecubedayday@gmail.com",
         subject: `Tienes una nueva reserva de THECUBE${restaurant.toUpperCase()}`,
         html: `
         <html>
