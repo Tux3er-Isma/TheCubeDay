@@ -7,10 +7,16 @@ import Section2 from "./Section2.astro";
 
 import r1Img1 from "../../../assets/Restaurants/r-1/dishes/img-1.png";
 import r1Img2 from "../../../assets/Restaurants/r-1/dishes/img-2.png";
+import r1Img3 from "../../../assets/Restaurants/r-1/dishes/img-3.png";
+import r1Img4 from "../../../assets/Restaurants/r-1/dishes/img-4.png";
 import r2Img1 from "../../../assets/Restaurants/r-2/dishes/img-1.jpeg";
 import r2Img2 from "../../../assets/Restaurants/r-2/dishes/img-2.jpeg";
+import r2Img3 from "../../../assets/Restaurants/r-2/dishes/img-3.jpeg";
+import r2Img4 from "../../../assets/Restaurants/r-2/dishes/img-4.jpeg";
 import r3Img1 from "../../../assets/Restaurants/r-3/dishes/img-1.jpeg";
 import r3Img2 from "../../../assets/Restaurants/r-3/dishes/img-2.jpeg";
+import r3Img3 from "../../../assets/Restaurants/r-3/dishes/img-3.jpeg";
+import r3Img4 from "../../../assets/Restaurants/r-3/dishes/img-4.jpeg";
 
 import Sticker1 from "../../../assets/Restaurants/r-1/sticker-1.png";
 import Sticker2 from "../../../assets/Restaurants/r-2/sticker-2.png";
@@ -19,18 +25,20 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
 
 <main class="main">
     <Section1 />
-    <Mid></Mid>
+    <Mid />
     <div class="main__restaurant" id="r">
         <Restaurant
             title="THE CUBE "
             title2="DAY"
-            src1={r1Img2}
-            src2={r1Img1}
+            src1={r1Img1.src}
+            src2={r1Img2.src}
+            src3={r1Img3.src}
+            src4={r1Img4.src}
             w1="345"
             h1="382"
             w2="345"
             h2="477"
-            background="#FF7700"
+            background="#FF9500"
             titleColor="#fff"
             title2Color="#592D00"
             borderColor="#603B2A"
@@ -39,15 +47,27 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
             btnBG="#815943"
             btnBC="#603B2A"
             btnC="#fff"
-            sticker={Sticker1}
+            sticker={Sticker1.src}
             link="/thecubeday"
+            bR="26"
+            tags={[
+                ["wifi", "WI-FI", "#fff", "#000", "#000"],
+                ["utensils", "RESERVAS ONLINE", "#fff", "#000", "#000"],
+                ["umbrella", "Terraza", "#fff", "#000", "#000"],
+                ["leaf", "Vegetariano", "#fff", "#000", "#000"],
+                ["wheat-awn", "SIN GLUTEN", "#fff", "#000", "#000"],
+                ["mars-double", "LGTBIQ+", "#fff", "#000", "#000"],
+                ["bag-shopping", "Para Llevar", "#fff", "#000", "#000"],
+                ["truck", "Pedidos", "#fff", "#000", "#000"],
+            ]}
         />
         <Restaurant
             title="THE CUBE "
-            title2="FUS"
-            title3="ION"
-            src1={r2Img2}
-            src2={r2Img1}
+            title2="FUSION"
+            src1={r2Img1.src}
+            src2={r2Img2.src}
+            src3={r2Img3.src}
+            src4={r2Img4.src}
             w1="345"
             h1="382"
             w2="345"
@@ -61,15 +81,28 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
             btnBG="#AF0000"
             btnBC="#000"
             btnC="#fff"
-            sticker={Sticker2}
+            bR="0"
+            sticker={Sticker2.src}
             link="thecubefusion"
+            tags={[
+                ["clock", "Happy Hour", "#E21B1B", "#fff", "#fff"],
+                ["wifi", "WI-FI", "#E21B1B", "#fff", "#fff"],
+                ["utensils", "RESERVAS ONLINE", "#E21B1B", "#fff", "#fff"],
+                ["umbrella", "Terraza", "#E21B1B", "#fff", "#fff"],
+                ["leaf", "Vegetariano", "#E21B1B", "#fff", "#fff"],
+                ["wheat-awn", "SIN GLUTEN", "#E21B1B", "#fff", "#fff"],
+                ["mars-double", "LGTBIQ+", "#E21B1B", "#fff", "#fff"],
+                ["bag-shopping", "Para Llevar", "#E21B1B", "#fff", "#fff"],
+                ["truck", "Pedidos", "#E21B1B", "#fff", "#fff"],
+            ]}
         />
         <Restaurant
             title="THE CUBE "
-            title2="DE LA "
-            title3="FONT"
-            src1={r3Img2}
-            src2={r3Img1}
+            title2="DE LA FONT"
+            src1={r3Img1.src}
+            src2={r3Img2.src}
+            src3={r3Img3.src}
+            src4={r3Img4.src}
             w1="345"
             h1="382"
             w2="345"
@@ -83,13 +116,24 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
             btnBG="#FF9500"
             btnBC="#603B2A"
             btnC="#191a1c"
-            sticker={Sticker3}
+            sticker={Sticker3.src}
             link="thecubedelafont"
+            bR="26"
+            tags={[
+                ["wifi", "WI-FI", "#FFA600", "#000", "#000"],
+                ["utensils", "RESERVAS ONLINE", "#FFA600", "#000", "#000"],
+                ["umbrella", "Terraza", "#FFA600", "#000", "#000"],
+                ["leaf", "Vegetariano", "#FFA600", "#000", "#000"],
+                ["wheat-awn", "SIN GLUTEN", "#FFA600", "#000", "#000"],
+                ["mars-double", "LGTBIQ+", "#FFA600", "#000", "#000"],
+                ["bag-shopping", "Para Llevar", "#FFA600", "#000", "#000"],
+                ["truck", "Pedidos", "#FFA600", "#000", "#000"],
+            ]}
         />
     </div>
     <Aside />
     <!-- <Section2 /> -->
-    <a href="/choose"><button type="button" class="main__btn">RESERVAR MESA</button></a>
+    <button type="button" class="main__btn" onclick="window.open(`/choose`)">RESERVAR MESA</button>
 </main>
 
 <style lang="scss">
@@ -107,6 +151,7 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
             font-family: "Bebas Neue", sans-serif;
             font-size: 65px;
             margin-top: 50px;
+            color: #000;
         }
     }
 </style>
@@ -114,11 +159,13 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
 <script is:inline>
     document.addEventListener("DOMContentLoaded", () => {
         const stickers = document.querySelectorAll(
-            ".container__sticker-container--mobile"
+            ".container__sticker-container--mobile",
         );
 
         if (!stickers.length) {
-            console.error("No se encontraron elementos con la clase .container__sticker-container--mobile");
+            console.error(
+                "No se encontraron elementos con la clase .container__sticker-container--mobile",
+            );
             return;
         }
 

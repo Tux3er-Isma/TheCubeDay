@@ -4,7 +4,7 @@ const { src, videoSrc, title, title2, color, location, link } = Astro.props;
 
 <a href=`${link}` target="_blank"><div class="card">
     <img src={src.src} alt={title} class="card__img" />
-    <video autoplay muted loop class="card__video">
+    <video autoplay muted loop playsinline class="card__video">
         <source src={videoSrc} />
     </video>
     <h1 class="card__title">
@@ -65,6 +65,7 @@ const { src, videoSrc, title, title2, color, location, link } = Astro.props;
     @media only screen and (max-width: 480px){
         .card{
             width: 300px;
+            pointer-events: none;
         }
     }
 

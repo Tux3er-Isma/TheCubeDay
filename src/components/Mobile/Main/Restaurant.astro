@@ -1,10 +1,37 @@
 ---
+interface Props {
+    title: string;
+    title2: string;
+    src1: string;
+    src2: string;
+    src3: string;
+    src4: string;
+    w1: string;
+    h1: string;
+    w2: string;
+    h2: string;
+    mapLink: string;
+    background: string;
+    titleColor: string;
+    title2Color: string;
+    borderColor: string;
+    borderRadius: string;
+    btnBC: string;
+    btnC: string;
+    btnBG: string;
+    sticker: string;
+    link: string;
+    bR: string;
+    tags: string[][];
+}
+
 const {
     title,
     title2,
-    title3,
     src1,
     src2,
+    src3,
+    src4,
     w1,
     h1,
     w2,
@@ -19,28 +46,81 @@ const {
     btnC,
     btnBG,
     sticker,
-    link
-} = Astro.props;
+    link,
+    bR,
+    tags,
+} = Astro.props as Props;
+
+import Tags from "../../Restaurants/Tags.astro";
 ---
 
 <div class="container" style=`background-color: ${background}`>
     <div
         class="container__sticker-container container__sticker-container--mobile"
     >
-        <img src={sticker.src} class="container__sticker-container__sticker" />
+        <img
+            src={sticker}
+            class="container__sticker-container__sticker"
+            alt=`THE CUBE ${title2}`
+        />
     </div>
     <h1 class="container__title" style=`color: ${titleColor}`>
         {title}
         <span class="container__title--color" style=`color: ${title2Color}`
             >{title2}</span
         >
-        <br />
-        <span class="container__title--color" style=`color: ${title2Color}`
-            >{title3}</span
-        >
     </h1>
+    <div class="container__marquee-container">
+        <marquee class="container__marquee-container__marquee"  scrollamount="7">
+            <div class="container__marquee-container__marquee__content">
+                {
+                    tags.map((tag) => (
+                        <Tags
+                            icon={tag[0]}
+                            txt={tag[1]}
+                            bG={tag[2]}
+                            iC={tag[3]}
+                            tC={tag[4]}
+                        />
+                    ))
+                }
+            </div>
+        </marquee>
+    </div>
     <div class="container__img-container">
-        <img
+        <div class="container__img-container__part">
+            <img
+                src={src1}
+                alt="TheCubeWorld"
+                class="container__img-container__part__img"
+                height="151"
+                style=`border-radius: ${bR}px`
+            />
+            <img
+                src={src2}
+                alt="TheCubeWorld"
+                class="container__img-container__part__img"
+                height="293"
+                style=`border-radius: ${bR}px`
+            />
+        </div>
+        <div class="container__img-container__part">
+            <img
+                src={src3}
+                alt="TheCubeWorld"
+                class="container__img-container__part__img"
+                height="277"
+                style=`border-radius: ${bR}px`
+            />
+            <img
+                src={src4}
+                alt="TheCubeWorld"
+                class="container__img-container__part__img"
+                height="164"
+                style=`border-radius: ${bR}px`
+            />
+        </div>
+        <!-- <img
             src={src1.src}
             class="container__img-container__img container__img-container__img--1"
             width={w1}
@@ -53,7 +133,7 @@ const {
             width={w2}
             height={h2}
             style=`border-radius: ${borderRadius}; border: 5px solid ${borderColor}`
-        />
+        /> -->
     </div>
     <div class="container__map-container">
         <iframe
@@ -66,12 +146,14 @@ const {
             src={mapLink}></iframe>
         <!-- <img src="https://staticmapmaker.com/img/google-placeholder.png" alt="" class="container__map-container__img"> -->
     </div>
-    <a href={link}><button
-        type="button"
-        class="container__btn"
-        style=`background-color: ${btnBG}; border-top: 12px solid ${btnBC}; border-bottom: 12px solid ${btnBC}; color: ${btnC}`
-        >RESERVAR MESA</button
-    ></a>
+    <a href={link}
+        ><button
+            type="button"
+            class="container__btn"
+            style=`background-color: ${btnBG}; border-top: 12px solid ${btnBC}; border-bottom: 12px solid ${btnBC}; color: ${btnC}`
+            >RESERVAR MESA</button
+        ></a
+    >
 </div>
 
 <style lang="scss">
@@ -92,7 +174,9 @@ const {
                 height: 150px;
                 position: relative;
                 transition: all 0.5s;
-                filter: drop-shadow(7px 4px 0.7px #000000bf);
+                transform: translateZ(0);
+                -webkit-filter: drop-shadow(7px 4px 1px rgba(0, 0, 0, 0.75));
+                filter: drop-shadow(7px 4px 1px rgba(0, 0, 0, 0.75));
             }
         }
 
@@ -101,23 +185,54 @@ const {
             font-family: "Bebas Neue", sans-serif;
             font-size: 110px;
             line-height: 100px;
-            position: relative;
-            left: 10px;
+            text-align: center;
+        }
+
+        &__marquee-container {
+            width: 100vw;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+
+            &__marquee {
+                width: 354px;
+
+                &__content {
+                    gap: 10px;
+                    display: flex;
+                }
+            }
         }
 
         &__img-container {
             display: flex;
             height: fit-content;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
 
-            &__img {
-                object-fit: cover;
+            // &__img {
+            //     object-fit: cover;
 
-                &--1 {
-                    transform: translateX(-150px);
-                }
+            //     &--1 {
+            //         transform: translateX(-150px);
+            //     }
 
-                &--2 {
-                    transform: translateX(-100px) translateY(-100px);
+            //     &--2 {
+            //         transform: translateX(-100px) translateY(-100px);
+            //     }
+            // }
+
+            &__part {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                &__img {
+                    width: 177px;
+                    object-fit: cover;
+                    border: 6px solid #000;
                 }
             }
         }
