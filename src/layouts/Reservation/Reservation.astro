@@ -30,13 +30,19 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Comida venezolana en Tarragona | The Cube" />
-		<meta name="keywords" content="TheCubeWorld, TheCubeDay, TheCubeFusion, TheCubeDeLaFont, Comida Venezolana">
+		<meta
+			name="description"
+			content="Comida venezolana en Tarragona | The Cube"
+		/>
+		<meta
+			name="keywords"
+			content="TheCubeWorld, TheCubeDay, TheCubeFusion, TheCubeDeLaFont, Comida Venezolana"
+		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="canonical" href="https://thecubeworld.net"/>
-		<meta property="og:locale" content="es_ES">
-		<meta property="og:title" content="TheCubeWorld">
-		<meta property="og:site_name" content="TheCubeWorld">
+		<link rel="canonical" href="https://thecubeworld.net" />
+		<meta property="og:locale" content="es_ES" />
+		<meta property="og:title" content="TheCubeWorld" />
+		<meta property="og:site_name" content="TheCubeWorld" />
 		<link rel="icon" href={logo.src} type="image/x-icon" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
@@ -60,7 +66,9 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 				/>
 				<div class="error-popup__content">
 					<h1 class="error-popup__content__title">Error</h1>
-					<p class="error-popup__content__error"></p>
+					<p class="error-popup__content__error">
+						Soy un mensaje de error asbasntante largo
+					</p>
 				</div>
 			</div>
 		</div>
@@ -95,12 +103,39 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 						<label
 							for="name"
 							class="content__main__form__inpt-container__title"
-							>Nombre</label
+							>Nombre y Apellidos</label
 						>
 						<input
 							type="text"
 							class="content__main__form__inpt-container__inpt content__main__form__inpt-container__inpt--name"
 							name="name"
+							required
+						/>
+					</div>
+					<div class="content__main__form__inpt-container">
+						<label
+							for="email"
+							class="content__main__form__inpt-container__title"
+							>Email</label
+						>
+						<input
+							type="email"
+							class="content__main__form__inpt-container__inpt content__main__form__inpt-container__inpt--email"
+							name="email"
+							required
+						/>
+					</div>
+					<div class="content__main__form__inpt-container">
+						<label
+							for="phone"
+							class="content__main__form__inpt-container__title"
+							>Número de Teléfono</label
+						>
+						<input
+							type="tel"
+							class="content__main__form__inpt-container__inpt content__main__form__inpt-container__inpt--phone"
+							name="phone"
+							placeholder="+34 xxx xxx xxx"
 							required
 						/>
 					</div>
@@ -144,7 +179,7 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 							required
 						>
 							<option value="" disabled selected
-								>Seleccione una hora</option
+								>Seleccione una fecha antes</option
 							>
 						</select>
 					</div>
@@ -184,7 +219,8 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 	}
 
 	html {
-		overflow: hidden;
+		overflow-y: scroll;
+		overflow-x: hidden;
 	}
 
 	body {
@@ -196,7 +232,7 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 
 	.centered {
 		width: 100vw;
-		position: absolute;
+		position: fixed;
 		display: flex;
 		justify-content: center;
 		z-index: 10;
@@ -207,26 +243,33 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 		display: none;
 		width: 100vw;
 		height: 100vh;
-		position: absolute;
+		position: fixed;
 		z-index: 10;
 		justify-content: center;
 		align-items: center;
+		/* From https://css.glass */
+		background: rgba(255, 255, 255, 0.2);
+		border-radius: 16px;
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		border: 1px solid rgba(255, 255, 255, 0.3);
 	}
 
 	.error-popup {
 		position: absolute;
 		background-color: #fff;
-		width: 45%;
-		height: 70px;
+		width: fit-content;
+		height: 100px;
 		display: flex;
 		border-left: 4px solid #f44336;
 		border-radius: 6px;
 		align-items: center;
-		top: -90px;
+		top: -100px;
 
 		@keyframes appear {
 			0% {
-				top: -90px;
+				top: -100px;
 			}
 
 			100% {
@@ -240,7 +283,7 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 			}
 
 			100% {
-				top: -90px;
+				top: -100px;
 			}
 		}
 
@@ -262,6 +305,7 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 			}
 
 			&__error {
+				width: 70%;
 				color: #aaa;
 			}
 		}
@@ -319,6 +363,7 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 		/* Este es el inner shadow */
 		margin-left: 5vw;
 		&__header {
+			height: fit-content;
 			&__title {
 				font-family: "Bebas Neue", sans-serif;
 				font-size: 102px;
@@ -415,7 +460,7 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 		display: flex;
 		height: 100vh;
 		align-items: center;
-		position: absolute;
+		position: fixed;
 		right: 0px;
 
 		&__bar {
@@ -665,12 +710,25 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 
 	@media only screen and (max-width: 480px) {
 		body {
-			flex-direction: column;
+			overflow-x: hidden;
 			overflow-y: scroll;
 		}
 
 		.content {
 			margin-left: 10px;
+
+			&__header {
+				// margin-top: 80px;
+				// margin-bottom: 20px;
+
+				&__title {
+					font-size: 80px;
+					line-height: 100px;
+				}
+
+				&__subtitle {
+				}
+			}
 
 			&__main {
 				&__form {
@@ -678,7 +736,7 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 
 					&__btn {
 						font-size: 40px;
-						margin-bottom: 200px;
+						// margin-bottom: 200px;
 					}
 				}
 			}
@@ -689,7 +747,7 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 		}
 	}
 
-	@media only screen and (max-width: 900px) {
+	@media only screen and (min-width: 481px) and (max-width: 900px) {
 		body {
 			flex-direction: column;
 			overflow-y: scroll;
@@ -752,8 +810,6 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 	}
 </style>
 
-<script is:inline></script>
-
 <script is:inline>
 	const errorPopup = document.querySelector(".error-popup");
 	const error = document.querySelector(".error-popup__content__error");
@@ -762,6 +818,12 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 	const form = document.querySelector(".content__main__form");
 	const nameInput = document.querySelector(
 		".content__main__form__inpt-container__inpt--name",
+	);
+	const emailInput = document.querySelector(
+		".content__main__form__inpt-container__inpt--email",
+	);
+	const phoneInput = document.querySelector(
+		".content__main__form__inpt-container__inpt--phone",
 	);
 	const peopleInput = document.querySelector(
 		".content__main__form__inpt-container__inpt--people",
@@ -802,15 +864,15 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 		const isToday = selectedDate.toDateString() === today.toDateString();
 
 		if (dateInput.value == formatDate(today)) {
-			console.log(today.getHours() + ':' +  today.getMinutes());
+			console.log(today.getHours() + ":" + today.getMinutes());
 			const generateTimeOptions = () => {
 				let options = "";
 				let startHour = today.getHours() + 1;
 				let endHour = 23.5; // 23:30 como 23.5 en pasos de media hora
 
-				if (today.getMinutes() < 30){
+				if (today.getMinutes() < 30) {
 					startHour = today.getHours() + 0.5;
-				} else if (today.getMinutes() >= 30){
+				} else if (today.getMinutes() >= 30) {
 					startHour = today.getHours() + 1;
 				}
 
@@ -857,12 +919,15 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 		event.preventDefault();
 
 		const nameValue = nameInput.value.trim();
-		const peopleValue = peopleInput.value.trim();
+		const emailValue = emailInput.value.trim();
+		const phoneValue = phoneInput.value.trim();
+		const peopleValue = peopleInput.value.replace(/\s+/g, "");
 		const dateValue = dateInput.value.trim();
 		const timeValue = timeInput.value.trim();
 		const allergyValue = allergyInput.value.trim();
 
 		const nameRegex = /^[a-zA-ZÀ-ÿ\u00f1\u00d1\s]+$/; // Permite letras y espacios.
+		const phoneRegex = /^(?:\+34|0034|34)?[6789]\d{8}$/;
 
 		let isValid = true;
 
@@ -874,6 +939,20 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 				errorPopup.style.animation = "disappear 1.5s forwards";
 			}, 2000);
 			isValid = false;
+		} else {
+			isValid = true;
+		}
+
+		if (phoneValue === "" || !phoneRegex.test(phoneValue)) {
+			error.innerHTML =
+				"El número de teléfono no puede estar vacío y debe ser válido";
+			errorPopup.style.animation = "appear .4s forwards";
+			setTimeout(() => {
+				errorPopup.style.animation = "disappear 1.5s forwards";
+			}, 2000);
+			isValid = false;
+		} else {
+			isValid = true;
 		}
 
 		if (peopleValue === "" || isNaN(peopleValue) || peopleValue <= 0) {
@@ -891,6 +970,8 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 				errorPopup.style.animation = "disappear 1.5s forwards";
 			}, 2000);
 			isValid = false;
+		} else {
+			isValid = true;
 		}
 
 		if (dateValue === "") {
@@ -900,6 +981,8 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 				errorPopup.style.animation = "disappear 1.5s forwards";
 			}, 2000);
 			isValid = false;
+		} else {
+			isValid = true;
 		}
 
 		if (timeValue === "") {
@@ -909,6 +992,8 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 				errorPopup.style.animation = "disappear 1.5s forwards";
 			}, 2000);
 			isValid = false;
+		} else {
+			isValid = true;
 		}
 
 		if (isValid) {
@@ -921,6 +1006,8 @@ import ViewTransitions from "astro/components/ViewTransitions.astro";
 					},
 					body: JSON.stringify({
 						name: nameValue,
+						email: emailValue,
+						phone: phoneValue,
 						people: peopleValue,
 						date: dateValue,
 						hour: timeValue,

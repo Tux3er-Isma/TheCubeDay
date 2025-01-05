@@ -9,7 +9,7 @@ const key = part1 + part2;
 export const POST: APIRoute = async ({ params, request }) => {
   if (request.headers.get('Content-Type') === 'application/json') {
     const body = await request.json();
-    const { name, people, date, hour, restaurant, allergy } = body;
+    const { name, email, phone, people, date, hour, restaurant, allergy } = body;
 
     let allergyTxt;
     let from;
@@ -34,6 +34,8 @@ export const POST: APIRoute = async ({ params, request }) => {
       .insert([
         {
           name: name,
+          email: email,
+          phone: phone,
           people: people,
           date: date,
           hour: hour,
@@ -114,6 +116,8 @@ export const POST: APIRoute = async ({ params, request }) => {
       <h1>¡Nueva Reserva en THECUBE${restaurant.toUpperCase()}!</h1>
       <div class="reservation-details">
         <p><strong>Nombre del cliente:</strong> ${name}</p>
+        <p><strong>Email del cliente:</strong> ${email}</p>
+        <p><strong>Número de Teléfono del cliente:</strong> ${phone}</p>
         <p><strong>Fecha:</strong> ${date}</p>
         <p><strong>Hora:</strong> ${hour}</p>
         <p><strong>Número de personas:</strong> ${people}</p>
