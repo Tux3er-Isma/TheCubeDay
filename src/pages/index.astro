@@ -2,6 +2,8 @@
 //Layout
 import Layout from "../layouts/Layout.astro";
 //Components
+//PreLoader	
+import PreLoader from "../components/Loaders/PreLoader.astro";
 //Desktop
 import Header from "../components/Header/Header.astro";
 import ResponsiveNav from "../components/ResponsiveNav.astro";
@@ -18,28 +20,37 @@ import MMain from "../components/Mobile/Main/Main.astro";
 ---
 
 <Layout title="TheCubeWorld">
-	<div class="desktop">
-		<Header />
-		<Main />
-		<Mid></Mid>
-		<Restaurants></Restaurants>
-		<Aside></Aside>
+	<div class="preloader">
+		<PreLoader />
 	</div>
-	<div class="pop-up">
-		<div class="pop-up__content">
-			<h1 class="pop-up__content__title">¡Oops! 🙃</h1>
-			<p class="pop-up__content__txt">Esta web está diseñada para ser disfrutada en orientación vertical. Gira tu dispositivo para continuar navegando. 😊</p>
+	<div class="b">
+		<div class="desktop">
+			<Header />
+			<Main />
+			<Mid></Mid>
+			<Restaurants></Restaurants>
+			<Aside></Aside>
 		</div>
-	</div>
-	<ResponsiveNav></ResponsiveNav>
-	<div class="mobile">
-		<MNav></MNav>
-		<MHeader></MHeader>
-		<MMain></MMain>
+		<div class="pop-up">
+			<div class="pop-up__content">
+				<h1 class="pop-up__content__title">¡Oops! 🙃</h1>
+				<p class="pop-up__content__txt">Esta web está diseñada para ser disfrutada en orientación vertical. Gira tu dispositivo para continuar navegando. 😊</p>
+			</div>
+		</div>
+		<ResponsiveNav></ResponsiveNav>
+		<div class="mobile">
+			<MNav></MNav>
+			<MHeader></MHeader>
+			<MMain></MMain>
+		</div>
 	</div>
 </Layout>
 
 <style lang="scss">
+	.b{
+		display: none;
+	}
+
 	.desktop{
 		font-family: "Poppins", sans-serif;
 		display: flex;
@@ -101,3 +112,15 @@ import MMain from "../components/Mobile/Main/Main.astro";
 		}
 	}
 </style>
+
+
+<!--PreLoader -->
+<script is:inline>
+		const preloader = document.querySelector(".preloader");
+	const body = document.querySelector(".b");
+
+	window.addEventListener("load", () => {
+		preloader.style.display = "none";
+		body.style.display = "flex";
+	});
+</script>

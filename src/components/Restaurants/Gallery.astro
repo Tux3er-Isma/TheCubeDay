@@ -1,6 +1,8 @@
 ---
-const { src1, src2, src3, src4, restaurant, bR, text1, text2, text3, text4 } = Astro.props;
-console.log(bR);
+const { src1, src2, src3, src4, restaurant, bR, text1, text2, text3, text4 } =
+    Astro.props;
+import { Image } from "astro:assets";
+import ImgLoader from "../Loaders/ImgLoader.astro";
 ---
 
 <div class="gallery" data-restaurant={restaurant}>
@@ -8,7 +10,8 @@ console.log(bR);
         class="gallery__container gallery__container--1"
         style=`border-radius: ${bR};`
     >
-        <img
+        <ImgLoader />
+        <Image
             src={src1}
             alt={text1}
             class="gallery__img gallery__img--1"
@@ -24,7 +27,8 @@ console.log(bR);
         class="gallery__container gallery__container--2"
         style=`border-radius: ${bR};`
     >
-        <img
+        <ImgLoader />
+        <Image
             src={src2}
             alt={text2}
             class="gallery__img gallery__img--2"
@@ -40,7 +44,8 @@ console.log(bR);
         class="gallery__container gallery__container--3"
         style=`border-radius: ${bR};`
     >
-        <img
+        <ImgLoader />
+        <Image
             src={src3}
             alt={text3}
             class="gallery__img gallery__img--3"
@@ -56,7 +61,8 @@ console.log(bR);
         class="gallery__container gallery__container--4"
         style=`border-radius: ${bR};`
     >
-        <img
+        <ImgLoader />
+        <Image
             src={src4}
             alt={text4}
             class="gallery__img gallery__img--4"
@@ -86,6 +92,8 @@ console.log(bR);
             border: 6px solid #000;
             position: relative;
             display: inline-flex;
+            justify-content: center;
+            align-items: center;
             view-timeline-name: --image;
             view-timeline-axis: inline;
             animation-timeline: --image;
@@ -130,7 +138,7 @@ console.log(bR);
             left: 10px;
             color: #fff;
             opacity: 0;
-            font-family: 'Poppins', sans-serif;
+            font-family: "Poppins", sans-serif;
             font-weight: 300;
         }
     }

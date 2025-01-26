@@ -1,0 +1,614 @@
+{
+    "aperitivos": {
+        "Nachos": [
+            {
+                "name": "Queso y Guacamole",
+                "price": "10.50€",
+                "description": "Queso rallado, salsa de queso y guacamole aparte",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/689b908280c24badc81bcbc7ff53498d/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Bolognesa",
+                "price": "10.50€",
+                "description": "Queso rallado, salsa de queso y bolognesa",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/745bf2171b39f4bfb6c366d777021bd3/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Mexicanos",
+                "price": "13.50€",
+                "description": "Queso rallado, salsa de queso y bolognesa picante, judías negras, jalapeños y guacamole",
+                "img": ""
+            },
+            {
+                "name": "Reina y Queso",
+                "price": "9.50€",
+                "description": "Queso rallado, salsa de queso y mezcla de reina pepiada",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/745bf2171b39f4bfb6c366d777021bd3/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            }
+        ],
+        "Bravas": [
+            {
+                "name": "Normales",
+                "price": "9.50€",
+                "description": "Patatas con salsa brava a parte",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/fc6f4a7f8cc03dd0e1dd3ac7c35f3517/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Con Queso",
+                "price": "9.70€",
+                "description": "Patatas con queso rallado y salsa brava a parte",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/c31cd0908251b89838271166f43c147c/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Bomba Pelirroja",
+                "price": "12.00€",
+                "description": "Patatas con queso rallado, huevo frito, pollo guisado y salsa brava",
+                "img": ""
+            },
+            {
+                "name": "Con Bacon",
+                "price": "10.50€",
+                "description": "Patatas con queso rallado, bacon cortado y salsa brava a parte",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/467f0e78ae9205822d2b23613b600976/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Bomba Carnívora",
+                "price": "13.00€",
+                "description": "Patatas con queso rallado, huevo frito, carne mechada y salsa brava",
+                "img": ""
+            },
+            {
+                "name": "Bomba Pollo",
+                "price": "12.00€",
+                "description": "Patatas con queso rallado, huevo frito, carne pollo estilo Reina y salsa brava",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/25b20ce61baf5f90a094a197c1dcfa5e/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            }
+        ],
+        "Ensaladas": [
+            {
+                "name": "Con Pollo",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Con Atún",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Vegetal",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Con Salmón",
+                "price": "9.50€",
+                "description": "Añade queso de cabra y cebolla caramelizada por 2€",
+                "img": ""
+            },
+            {
+                "name": "César",
+                "price": "11.50€",
+                "description": "",
+                "img": ""
+            }
+        ],
+        "Salchipapa": [
+            {
+                "name": "Normales",
+                "price": "9.50€",
+                "description": "Ketchup y mayonesa",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/7c31cd3833760d2d9914c835ade70897/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Queso",
+                "price": "10.50€",
+                "description": "Ketchup, mayonesa y queso rallado",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/df18d4e38f56cb625f14016e7c7b44e4/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Salchiveggie",
+                "price": "11.50€",
+                "description": "Salchicha vegana, ketchup, mayonesa vegana, queso vegano y Heura",
+                "img": ""
+            },
+            {
+                "name": "Huevo y Queso",
+                "price": "11.50€",
+                "description": "Ketchup, mayonesa, queso rallado y huevo frito",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/7140aebe468754a676e3aef80a7118e7/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Bacon, Huevo y Queso",
+                "price": "11.50€",
+                "description": "Ketchup, mayonesa, queso rallado, bacon y huevo frito",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/16fb84caf4a45fbad1ca4ab4a995e850/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Bomba Mixta",
+                "price": "11.50€",
+                "description": "Ketchup, mayonesa, queso rallado, huevo frito y mezcla de mechada y Reina",
+                "img": ""
+            },
+            {
+                "name": "Bomba Pollo",
+                "price": "9.50€",
+                "description": "Ketchup, mayonesa, queso rallado, huevo frito y Reina Pepiada",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/583381a14d65b02a920d956cc8e18895/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Bomba Pelirroja",
+                "price": "10.50€",
+                "description": "Ketchup, mayonesa, queso rallado, huevo frito y pollo guisado",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/c7220d9e92e104978c97601795b7471c/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Bomba Carnívora",
+                "price": "11.50€",
+                "description": "Ketchup, mayonesa, queso rallado, huevo frito y carne mechada",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/ad4e2356706f24b2eb7c7378ca27974f/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            }
+        ],
+        "Tequeños": [
+            {
+                "name": "Tequeños",
+                "price": "10.50€",
+                "description": "Dedos hechos con harina de trigo, rellenos de rico queso de vaca. Si buscas probar un plato típico venezolano, aquí lo tienes!", 
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/c751666491f0805c40cd9b9dcabc9e95/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            }
+        ],
+        "Empanadas y Pastelitos": [
+            {
+                "name": "Queso",
+                "price": "5.50€",
+                "description": "", 
+                "img": ""
+            },
+            {
+                "name": "Pollo",
+                "price": "5.50€",
+                "description": "", 
+                "img": ""
+            },
+            {
+                "name": "Pollo y Queso",
+                "price": "5.50€",
+                "description": "", 
+                "img": ""
+            },
+            {
+                "name": "Carne Mechada",
+                "price": "6.00€",
+                "description": "", 
+                "img": ""
+            },
+            {
+                "name": "Carne Mechada y Queso",
+                "price": "6.50€",
+                "description": "", 
+                "img": ""
+            },
+            {
+                "name": "Pollo Guisado",
+                "price": "5.50€",
+                "description": "", 
+                "img": ""
+            },
+            {
+                "name": "Pollo Guisado y Queso",
+                "price": "6.50€",
+                "description": "", 
+                "img": ""
+            },
+            {
+                "name": "Jamón y Queso",
+                "price": "5.50€",
+                "description": "", 
+                "img": ""
+            },
+            {
+                "name": "Bolognesa",
+                "price": "5.50€",
+                "description": "", 
+                "img": ""
+            },
+            {
+                "name": "Con Queso y Plátano Frito",
+                "price": "5.50€",
+                "description": "", 
+                "img": ""
+            },
+            {
+                "name": "Pabellón",
+                "price": "7.00€",
+                "description": "Empanada gigante, NO disponible versión pastelito", 
+                "img": ""
+            },
+            {
+                "name": "Pizza",
+                "price": "6.50€",
+                "description": "Salsa Bolognesa, jamon y queso", 
+                "img": ""
+            },
+            {
+                "name": "Domino",
+                "price": "5.50€",
+                "description": "Caraotas y queso", 
+                "img": ""
+            }
+        ],
+        "Platano frito": [
+            {
+                "name": "Plátano Frito con Queso",
+                "price": "9.50€",
+                "description": "Plátano típicpo de Venezuela, es una delicia, no podrás parar de comer!",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/63d45b471f974956d1667c2cb46664f8/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            }
+        ],
+        "Mini Arepas Gourmet": [
+            {
+                "name": "Mini Arepas Gourmet",
+                "price": "18.00€",
+                "description": "Para aquellos que quieran probar varias arepas a la vez y no quedar tan llenos. Elige 2 sabores de la carta y crea tu plato. Estas Arepitas son fritas",
+                "img": ""
+            }
+        ],
+        "Patacones": [
+            {
+                "name": "Queso",
+                "price": "9.50€",
+                "description": "",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/ecbcd0ec8d70bd1febf25a1eac737c6c/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Reina Pepiada",
+                "price": "9.50€",
+                "description": "",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/16cf656767c52fc5ad27f2a09c9dd06c/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Bomba Pollo",
+                "price": "10.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "A Contracorriente",
+                "price": "9.50€",
+                "description": "",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/8e3a8b777c5da864d98835f88f12f4bc/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Bomba Carnívora",
+                "price": "10.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Bomba Pelirroja",
+                "price": "10.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Silvestre",
+                "price": "10.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Marinera",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Clásica",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Rey",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Vegetariana",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Vegetata",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Mery Veggie",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Mexicana",
+                "price": "10.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Iberica",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Princesa",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Príncipe",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Platanera",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Torija",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Pabellón",
+                "price": "11.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Pata Pata",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Napolitana",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Americana",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Piolin",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Tun Tun",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Carnivora",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Domino",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            }
+        ],
+        "Platanitos": [
+            {
+                "name": "Platanitos con salsa guacamole",
+                "price": "9.50€",
+                "description": "Parecido a los nachos pero con plátano, ¿Te atreves a probar algo nuevo?",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/0c65e6d5cfb1a2041599a70c4b784161/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            }
+        ],
+        "Sopas": [
+            {
+                "name": "Sopa Venezolana",
+                "price": "10.50€",
+                "description": "Sopa hecha con mucho cariño, lleva verduras, ternera o pollo, consulta con el camarero que tipo de sopa hay hoy",
+                "img": ""
+            }
+        ],
+        "Yuka frita": [
+            {
+                "name": "Yuka Frita",
+                "price": "9.50€",
+                "description": "Combínala con verduras, ternera y salsa guasaca +1€",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/20059da5de28d7a8c6e4bf56c0e1db8c/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            }
+        ]
+    },
+    "arepas": {
+        "":[
+            {
+                "name": "Queso",
+                "price": "9.50€",
+                "description": "",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/ecbcd0ec8d70bd1febf25a1eac737c6c/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Reina Pepiada",
+                "price": "9.50€",
+                "description": "",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/16cf656767c52fc5ad27f2a09c9dd06c/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Bomba Pollo",
+                "price": "10.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "A Contracorriente",
+                "price": "9.50€",
+                "description": "",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/8e3a8b777c5da864d98835f88f12f4bc/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Bomba Carnívora",
+                "price": "10.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Bomba Pelirroja",
+                "price": "10.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Silvestre",
+                "price": "10.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Marinera",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Clásica",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Rey",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Vegetariana",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Vegetata",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Mery Veggie",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Mexicana",
+                "price": "10.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Iberica",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Princesa",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Príncipe",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Platanera",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Torija",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Pabellón",
+                "price": "11.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Pata Pata",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Napolitana",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Americana",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Piolin",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Tun Tun",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Carnivora",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Domino",
+                "price": "9.50€",
+                "description": "",
+                "img": ""
+            }
+        ]
+    }
+}

@@ -2,10 +2,10 @@
 interface Props {
     title: string;
     title2: string;
-    src1: string;
-    src2: string;
-    src3: string;
-    src4: string;
+    src1: ImageMetadata;
+    src2: ImageMetadata;
+    src3: ImageMetadata;
+    src4: ImageMetadata;
     w1: string;
     h1: string;
     w2: string;
@@ -51,7 +51,9 @@ const {
     tags,
 } = Astro.props as Props;
 
+import { Image } from "astro:assets";
 import Tags from "../../Restaurants/Tags.astro";
+import ImgLoader from "../../Loaders/ImgLoader.astro";
 ---
 
 <div class="container" style=`background-color: ${background}`>
@@ -71,7 +73,7 @@ import Tags from "../../Restaurants/Tags.astro";
         >
     </h1>
     <div class="container__marquee-container">
-        <marquee class="container__marquee-container__marquee"  scrollamount="7">
+        <marquee class="container__marquee-container__marquee" scrollamount="7">
             <div class="container__marquee-container__marquee__content">
                 {
                     tags.map((tag) => (
@@ -89,36 +91,68 @@ import Tags from "../../Restaurants/Tags.astro";
     </div>
     <div class="container__img-container">
         <div class="container__img-container__part">
-            <img
-                src={src1}
-                alt="TheCubeWorld"
-                class="container__img-container__part__img"
-                height="151"
-                style=`border-radius: ${bR}px`
-            />
-            <img
+            <div class="container__img-container__part__img-container">
+                <ImgLoader />
+                <Image
+                    src={src1}
+                    alt="TheCubeDay"
+                    aria-hidden="true"
+                    loading={"lazy"}
+                    height={151}
+                    quality={"high"}
+                    decoding={"async"}
+                    format="avif"
+                    class="container__img-container__part__img-container__img"
+                    style={`border-radius: ${bR}px`}
+                />
+            </div>
+            <div class="container__img-container__part__img-container">
+                <ImgLoader />
+                <Image
                 src={src2}
-                alt="TheCubeWorld"
-                class="container__img-container__part__img"
-                height="293"
-                style=`border-radius: ${bR}px`
+                alt="TheCubeDay"
+                aria-hidden="true"
+                loading={"lazy"}
+                height={293}
+                quality={"high"}
+                decoding={"async"}
+                format="avif"
+                class="container__img-container__part__img-container__img"
+                style={`border-radius: ${bR}px`}
             />
+            </div>
         </div>
         <div class="container__img-container__part">
-            <img
-                src={src3}
-                alt="TheCubeWorld"
-                class="container__img-container__part__img"
-                height="277"
-                style=`border-radius: ${bR}px`
-            />
-            <img
-                src={src4}
-                alt="TheCubeWorld"
-                class="container__img-container__part__img"
-                height="164"
-                style=`border-radius: ${bR}px`
-            />
+            <div class="container__img-container__part__img-container">
+                <ImgLoader />
+                <Image
+                    src={src3}
+                    alt="TheCubeDay"
+                    aria-hidden="true"
+                    loading={"lazy"}
+                    height={277}
+                    quality={"high"}
+                    decoding={"async"}
+                    format="avif"
+                    class="container__img-container__part__img-container__img"
+                    style={`border-radius: ${bR}px`}
+                />
+            </div>
+            <div class="container__img-container__part__img-container">
+                <ImgLoader />
+                <Image
+                    src={src4}
+                    alt="TheCubeDay"
+                    aria-hidden="true"
+                    loading={"lazy"}
+                    height={164}
+                    quality={"high"}
+                    decoding={"async"}
+                    format="avif"
+                    class="container__img-container__part__img-container__img"
+                    style={`border-radius: ${bR}px`}
+                />
+            </div>
         </div>
         <!-- <img
             src={src1.src}
@@ -135,7 +169,8 @@ import Tags from "../../Restaurants/Tags.astro";
             style=`border-radius: ${borderRadius}; border: 5px solid ${borderColor}`
         /> -->
     </div>
-    <div class="container__map-container">
+    <div class="container__map-container container__map-container--mobile">
+        <ImgLoader />
         <iframe
             class="container__map-container__map"
             style=`border-top: 5px solid ${borderColor}; border-bottom: 5px solid ${borderColor};`
@@ -229,10 +264,16 @@ import Tags from "../../Restaurants/Tags.astro";
                 flex-direction: column;
                 gap: 10px;
 
-                &__img {
-                    width: 177px;
-                    object-fit: cover;
-                    border: 6px solid #000;
+                &__img-container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    &__img {
+                        width: 177px;
+                        object-fit: cover;
+                        border: 6px solid #000;
+                    }
                 }
             }
         }
@@ -242,6 +283,7 @@ import Tags from "../../Restaurants/Tags.astro";
             height: 293px;
             display: flex;
             justify-content: center;
+            align-items: center;
             margin-bottom: 50px;
 
             &__map {

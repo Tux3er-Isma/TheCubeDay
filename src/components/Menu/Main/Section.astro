@@ -1,0 +1,155 @@
+---
+//Imports
+//Props
+const { title } = Astro.props;
+
+//Json
+import data from "../../../data/menu.json";
+
+//Components
+import Card from "./Card.astro";
+
+//Img
+import aperitivosImg from "../../../assets/Menu/Icons/aperitivos.png";
+
+let domData: any;
+let dataArr;
+let domImg;
+let aperitivos = data.aperitivos;
+let arepas = data.arepas;
+
+if (title == "Aperitivos") {
+    domData = aperitivos;
+    domImg = aperitivosImg;
+    console.log(Object.keys(domData).map((i) => i));
+    dataArr = Object.keys(domData);
+    // console.log(Object.keys(domData).length);
+} else if (title == "Arepas") {
+    domData = arepas;
+    dataArr = Object.keys(domData); 
+}
+---
+
+<section class="section">
+    <header class="section__title-container">
+        <img
+            src={domImg?.src}
+            alt={title}
+            class="section__title-container__icon"
+        />
+        <h1 class="section__title-container__title">{title}</h1>
+    </header>
+    <main class="section__main">
+        {
+            Object.keys(domData || {}).map((category) => (
+                <div class="section__main__food-container">
+                    <h1 class="section__main__food-container__title">
+                        {category}
+                    </h1>
+                    <div class="section__main__food-container__card-container">
+                        {domData[category].map((i: any) => (
+                            <Card
+                                section={title}
+                                title={i.name}
+                                description={i.description}
+                                price={i.price}
+                                img={i.img}
+                            />
+                        ))}
+                    </div>
+                </div>
+            ))
+        }
+    </main>
+</section>
+
+<style lang="scss">
+    .section {
+        width: 100%;
+
+        &__title-container {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+
+            &__icon {
+                width: 48px;
+                height: 48px;
+                object-fit: cover;
+            }
+
+            &__title {
+                font-weight: 500;
+                font-size: 25px;
+            }
+        }
+
+        &__main {
+            width: 98%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+
+            &__food-container {
+                &__card-container {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 25px;
+                }
+            }
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        .section {
+            &__main {
+                // display: block;
+                // column-count: 2;
+                // gap: 0px;
+
+                &__food-container {
+                    &__card-container {
+                        display: block;
+                        column-count: 2;
+                        gap: 0px;
+                        column-gap: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    @keyframes appear {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+</style>
+
+<script is:inline>
+    const main = document.querySelectorAll(".section__main");
+    let cards;
+
+    const verifyVisibility = (evt) => {
+        for (let i = 0; i < evt.length; i++) {
+            if (evt[i].isIntersecting) {
+                evt[i].target.style.opacity = 1;
+                evt[i].target.style.animation = "appear 1s forwards";
+            }
+        }
+    };
+
+    const observer = new IntersectionObserver(verifyVisibility);
+
+    main.forEach((container) => {
+        cards = container.children;
+        console.log(cards);
+        for (let i = 0; i < cards.length; i++) {
+            observer.observe(cards[i]);
+        }
+    });
+</script>

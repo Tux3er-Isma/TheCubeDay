@@ -107,6 +107,7 @@ import Gallery from "./Gallery.astro";
     }
 </style>
 
+<!--Draggable Arepa -->
 <script is:inline>
     document.addEventListener('DOMContentLoaded', () =>{
 
@@ -172,51 +173,21 @@ import Gallery from "./Gallery.astro";
 
 </script>
 
-<!-- <script is:inline>
-    const main = document.querySelector("body > div.desktop > section.main");
-    const article1 = main.children[0].children[0];
-    const article2 = main.children[0].children[1];
-    const article3 = main.children[2].children[1];
-    const article4 = main.children[2].children[2];
-    console.log(article1);
+<!--Loader -->
+<script is:inline>
+    const imgContainerContainerArr = document.querySelectorAll('.article__img-container__container');
 
-    const observer = new IntersectionObserver(
-        (entries) =>{
-            console.log(entries)
-            entries.forEach(entry =>{
-                if (entry.isIntersecting){
-                    console.log(`${entry.target} is intersecting`)
-                    entry.target.style.animation = "fade-in linear .2s"
-                } else {
-                    console.log(`${entry} is no longer intersecting`)
-                    entry.target.style.animation = 'none';
-                }
+    imgContainerContainerArr.forEach((container) =>{
+        let loader = container.children[0];
+        let img = container.children[1];
+
+        
+        if (img.complete){
+            loader.style.display = "none";
+        } else {
+            img.addEventListener("load", () => {
+                loader.style.display = "none";
             })
         }
-    )
-
-    observer.observe(document.querySelector("body > div.desktop > section.main > div:nth-child(1) > article:nth-child(2) > div > div:nth-child(1)"))
-    // observer.observe(article2.children)
-</script> -->
-
-<!-- <script is:inline>
-    // Selecciona todos los elementos a observar
-    const items = document.querySelectorAll('.scroll-item');
-
-    // Configuración del Intersection Observer
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in'); // Agrega la clase de animación
-                } else {
-                    entry.target.classList.remove('fade-in'); // Remueve la clase al salir de la vista (opcional)
-                }
-            });
-        },
-        { root: null, threshold: 0.5, rootMargin: '0px' } // Ajusta el threshold según tus necesidades
-    );
-
-    // Observa cada elemento
-    items.forEach(item => observer.observe(item));
-</script> -->
+    })
+</script>

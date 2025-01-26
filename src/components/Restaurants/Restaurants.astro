@@ -66,7 +66,7 @@ import Sticker3 from "../../assets/Restaurants/r-3/sticker-3.png";
         ]}
         scrollAmmount={7}
         sourceArray={[
-            [r1DImg1.src, r1DImg2.src, r1DImg3.src, r1DImg4.src, "1", "26px", "Arepa de carne desmechada", "Tequeños de harina rellenos de queso", "Tequeños de harina rellenos de queso", "Arepas de carne"],
+            [r1DImg1, r1DImg2, r1DImg3, r1DImg4, "1", "26px", "Arepa de carne desmechada", "Tequeños de harina rellenos de queso", "Tequeños de harina rellenos de queso", "Arepas de carne"],
         ]}
         sticker={Sticker1}
     />
@@ -114,7 +114,7 @@ import Sticker3 from "../../assets/Restaurants/r-3/sticker-3.png";
         ]}
         scrollAmmount={7}
         sourceArray={[
-            [r2DImg1.src, r2DImg3.src, r2DImg2.src, r2DImg4.src, "2", "0px", "Zumo de naranja con ron y maracuyá", "La Carnívora", "Salchipapas", "Banoffe (Dulce de leche, galletas lotus y mascarpone)"],
+            [r2DImg1, r2DImg3, r2DImg2, r2DImg4, "2", "0px", "Zumo de naranja con ron y maracuyá", "La Carnívora", "Salchipapas", "Banoffe (Dulce de leche, galletas lotus y mascarpone)"],
         ]}
         sticker={Sticker2}
     />
@@ -159,7 +159,7 @@ import Sticker3 from "../../assets/Restaurants/r-3/sticker-3.png";
         ]}
         scrollAmmount={10}
         sourceArray={[
-            [r3DImg1.src, r3DImg2.src, r3DImg3.src, r3DImg4.src, "3", "26px", "Bravas con bacon y queso", "Bravas", "Platano Frito con queso", 'Salchipapas "Bomba carnívora"'],
+            [r3DImg1, r3DImg2, r3DImg3, r3DImg4, "3", "26px", "Bravas con bacon y queso", "Bravas", "Platano Frito con queso", 'Salchipapas "Bomba carnívora"'],
         ]}
         sticker={Sticker3}
     />
@@ -198,6 +198,7 @@ import Sticker3 from "../../assets/Restaurants/r-3/sticker-3.png";
     }
 </style>
 
+<!--Sticker Dragging -->
 <script is:inline>
     const stickers = document.querySelectorAll(".container__sticker-container");
     console.log(stickers);
@@ -260,5 +261,23 @@ import Sticker3 from "../../assets/Restaurants/r-3/sticker-3.png";
                 document.removeEventListener("mouseup", mouseUp);
             }
         });
+    });
+</script>
+
+<!--Img Loading -->
+<script is:inline>
+    const galleryContainerArr = document.querySelectorAll(".gallery__container");
+
+    galleryContainerArr.forEach((container) => {
+        let loader = container.children[0];
+        let img = container.children[1];
+
+        if (img.complete) {
+            loader.style.display = 'none'
+        } else {
+            img.addEventListener('load', () => {
+                loader.style.display = 'none'
+            })
+        }
     });
 </script>

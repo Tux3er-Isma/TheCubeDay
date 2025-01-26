@@ -1,27 +1,36 @@
 ---
+import { Image } from "astro:assets";
 import Img3 from "../../assets/Main/Img3.png";
 import Img4 from "../../assets/Main/Img4.png";
+
+import ImgLoader from "../Loaders/ImgLoader.astro";
 ---
 
 <article class="article">
     <div class="article__img-container">
         <div class="article__img-container__container">
-            <img
-                src={Img3.src}
-                class="article__img-container__container__img article__img-container__container__img--3"
-                width="206"
-                height="315"
-                alt="TheCubeWorld"
-            />
+            <ImgLoader />
+            <Image
+                src={Img3}
+                alt={"TheCubeDay"}
+                width={206}
+                class={"article__img-container__container__img article__img-container__container__img--3"}
+                quality={"high"}
+                format="avif"
+                aria-hidden={true}
+            ></Image>
         </div>
         <div class="article__img-container__container">
-            <img
-                src={Img4.src}
-                class="article__img-container__container__img article__img-container__container__img--4"
-                width="414"
-                height="315"
-                alt="TheCubeWorld"
-            />
+            <ImgLoader />
+            <Image
+                src={Img4}
+                alt={"TheCubeDay"}
+                width={414}
+                class={"article__img-container__container__img article__img-container__container__img--4"}
+                quality={"high"}
+                format="avif"
+                aria-hidden={true}
+            ></Image>
         </div>
     </div>
 </article>
@@ -45,6 +54,9 @@ import Img4 from "../../assets/Main/Img4.png";
                 border: 8px solid #e5c6a5;
                 overflow: hidden;
                 height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 view-timeline-name: --image;
                 view-timeline-axis: inline;
                 animation-timeline: --image;

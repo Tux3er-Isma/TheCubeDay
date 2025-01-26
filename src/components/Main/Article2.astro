@@ -1,25 +1,35 @@
 ---
+import { Image } from "astro:assets";
 import Img1 from "../../assets/Main/Img1.png";
 import Img2 from "../../assets/Main/Img2.png";
+import ImgLoader from "../Loaders/ImgLoader.astro";
 ---
 
 <article class="article">
     <div class="article__img-container">
         <div class="article__img-container__container">
-            <img
-                src={Img1.src}
-                class="article__img-container__container__img article__img-container__container__img--1"
-                width="206"
-                alt="TheCubeWorld"
-            />
+            <ImgLoader />
+            <Image
+                src={Img1}
+                alt={"TheCubeDay"}
+                width={206}
+                class={"article__img-container__container__img article__img-container__container__img--1"}
+                quality={"high"}
+                format="avif"
+                aria-hidden={true}
+            ></Image>
         </div>
         <div class="article__img-container__container">
-            <img
-                src={Img2.src}
-                class="article__img-container__container__img article__img-container__container__img--2"
-                width="792px"
-                alt="TheCubeWorld"
-            />
+            <ImgLoader />
+            <Image
+                src={Img2}
+                alt={"TheCubeDay"}
+                width={792}
+                class={"article__img-container__container__img article__img-container__container__img--2"}
+                quality={"high"}
+                format="avif"
+                aria-hidden={true}
+            ></Image>
         </div>
     </div>
 </article>
@@ -47,6 +57,9 @@ import Img2 from "../../assets/Main/Img2.png";
                 overflow: hidden;
                 height: 100%;
                 scale: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 view-timeline-name: --image;
                 view-timeline-axis: inline;
                 animation-timeline: --image;

@@ -59,7 +59,6 @@ import Logo from "../assets/Restaurants/r-3/sticker-3.png";
 			integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
 			crossorigin=""
 		/>
-		<!-- <ViewTransitions></ViewTransitions> -->
 	</head>
 	<body>
 		<slot />
@@ -183,17 +182,6 @@ import Logo from "../assets/Restaurants/r-3/sticker-3.png";
 	}
 </style>
 
-<!-- <script is:inline>
-	if (window.screen.availWidth >= 900) {
-		let item = document.querySelector("html");
-
-		item.addEventListener("wheel", function (e) {
-			if (e.deltaY > 0) item.scrollLeft += 250;
-			else item.scrollLeft -= 250;
-		});
-	}
-</script> -->
-
 <script is:inline>
 	let isScrolling = false;
 
@@ -227,18 +215,3 @@ import Logo from "../assets/Restaurants/r-3/sticker-3.png";
 		passive: false,
 	});
 </script>
-
-<!-- <script is:inline>
-	window.navigation.addEventListener('navigate', (evt) =>{
-		const toUrl = new URL(evt.destination.url)
-
-		if (location.origin !== toUrl.origin) return
-
-		evt.intercept({
-			async handler() {
-				const response = await fetch(toUrl.pathname);
-				const text = await response.text();
-			}
-		})
-	})
-</script> -->

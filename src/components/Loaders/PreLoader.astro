@@ -1,0 +1,33 @@
+---
+import Img from "../../assets/Header/arepa.png"
+---
+
+<div class="loader">
+    <img src={Img.src} alt="TheCubeDay" class="loader__img">
+</div>
+
+<style>
+    .loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .loader__img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        animation: rotate infinite 3s linear;
+    }
+
+    @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(1000deg);
+            }
+        }
+</style>

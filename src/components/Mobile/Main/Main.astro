@@ -30,10 +30,10 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
         <Restaurant
             title="THE CUBE "
             title2="DAY"
-            src1={r1Img1.src}
-            src2={r1Img2.src}
-            src3={r1Img3.src}
-            src4={r1Img4.src}
+            src1={r1Img1}
+            src2={r1Img2}
+            src3={r1Img3}
+            src4={r1Img4}
             w1="345"
             h1="382"
             w2="345"
@@ -64,10 +64,10 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
         <Restaurant
             title="THE CUBE "
             title2="FUSION"
-            src1={r2Img1.src}
-            src2={r2Img2.src}
-            src3={r2Img3.src}
-            src4={r2Img4.src}
+            src1={r2Img1}
+            src2={r2Img2}
+            src3={r2Img3}
+            src4={r2Img4}
             w1="345"
             h1="382"
             w2="345"
@@ -77,7 +77,7 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
             title2Color="#AF0000"
             borderColor="#AF0000"
             borderRadius="0px"
-            mapLink="https://maps.google.com/maps?width=600&height=400&hl=en&q=The Cube Day&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+            mapLink="https://maps.google.com/maps?width=600&height=400&hl=en&q=TheCubeFusion&t=&z=14&ie=UTF8&iwloc=B&output=embed"
             btnBG="#AF0000"
             btnBC="#000"
             btnC="#fff"
@@ -99,10 +99,10 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
         <Restaurant
             title="THE CUBE "
             title2="DE LA FONT"
-            src1={r3Img1.src}
-            src2={r3Img2.src}
-            src3={r3Img3.src}
-            src4={r3Img4.src}
+            src1={r3Img1}
+            src2={r3Img2}
+            src3={r3Img3}
+            src4={r3Img4}
             w1="345"
             h1="382"
             w2="345"
@@ -112,7 +112,7 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
             title2Color="#FF9500"
             borderColor="#603B2A"
             borderRadius="26px"
-            mapLink="https://maps.google.com/maps?width=600&height=400&hl=en&q=The Cube Day&t=&z=14&ie=UTF8&iwloc=B&output=embed"
+            mapLink="https://maps.google.com/maps?width=600&height=400&hl=en&q=TheCubedelafont&t=&z=14&ie=UTF8&iwloc=B&output=embed"
             btnBG="#FF9500"
             btnBC="#603B2A"
             btnC="#191a1c"
@@ -133,7 +133,9 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
     </div>
     <Aside />
     <!-- <Section2 /> -->
-    <button type="button" class="main__btn" onclick="window.open(`/choose`)">RESERVAR MESA</button>
+    <button type="button" class="main__btn" onclick="window.open(`/choose`)"
+        >RESERVAR MESA</button
+    >
 </main>
 
 <style lang="scss">
@@ -156,6 +158,7 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
     }
 </style>
 
+<!-- Stickers -->
 <script is:inline>
     document.addEventListener("DOMContentLoaded", () => {
         const stickers = document.querySelectorAll(
@@ -236,4 +239,61 @@ import Sticker3 from "../../../assets/Restaurants/r-3/sticker-3.png";
             }
         });
     });
+</script>
+
+<!--Img Loading -->
+<script is:inline>
+    const imgContainerArr1 = document.querySelectorAll(
+        ".section__article__part__img-container"
+    );
+
+    imgContainerArr1.forEach((container) =>{
+        let loader = container.children[0];
+        let img = container.children[1];
+
+        if (img.complete){
+            loader.style.display = "none";
+        } else {
+            img.addEventListener("load", () => {
+                loader.style.display = "none";
+            })
+        }
+    })
+
+    const imgContainerArr2 = document.querySelectorAll(
+        ".container__img-container__part__img-container"
+    );
+
+    imgContainerArr2.forEach((container) =>{
+        let loader = container.children[0];
+        let img = container.children[1];
+
+        if (img.complete){
+            loader.style.display = "none";
+        } else {
+            img.addEventListener("load", () => {
+                loader.style.display = "none";
+            })
+        }
+    })
+
+    const mapContainerArr = document.querySelectorAll(
+        ".container__map-container--mobile"
+    );
+
+    console.log(mapContainerArr)
+
+    mapContainerArr.forEach((container) =>{
+        let loader = container.children[0];
+        let map = container.children[1];
+
+
+        if (map.complete){
+            loader.style.display = "none";
+        } else {
+            map.addEventListener("load", () => {
+                loader.style.display = "none";
+            })
+        }
+    })
 </script>
