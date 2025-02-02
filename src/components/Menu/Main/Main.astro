@@ -1,10 +1,16 @@
 ---
-import Section from "./Section.astro";
+import Section from "./Section.astro"
+import Aperitivos from "./Aperitivos.astro"
+import Arepas from "./Arepas.astro"
+import Postres from "./Postres.astro"
+import Bebidas from "./Bebidas.astro"
 ---
 
 <main class="main">
-    <Section title="Aperitivos"></Section>
-    <Section title="Arepas"></Section>
+    <Aperitivos title="Aperitivos"></Aperitivos>
+    <Arepas title="Arepas"></Arepas>
+    <Postres title="Postres"></Postres>
+    <Bebidas title="Bebidas"></Bebidas>
     <!-- {data.aperitivos.nachos.map((i) => <li>{i.description}</li>)} -->
 </main>
 

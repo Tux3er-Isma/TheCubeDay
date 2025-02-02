@@ -17,13 +17,13 @@
                 "name": "Mexicanos",
                 "price": "13.50€",
                 "description": "Queso rallado, salsa de queso y bolognesa picante, judías negras, jalapeños y guacamole",
-                "img": ""
+                "img": "https://glovo.dhmedia.io/image/menus-glovo/products/361c6e042a4d347e4f104844a4bb521b6a66b62fd7d6764a3811231c202b1ed8?t=W3siYXZpZiI6eyJxIjoibG93In19LHsicmVzaXplIjp7IndpZHRoIjoyNjAsImhlaWdodCI6MjYwfX1d"
             },
             {
                 "name": "Reina y Queso",
                 "price": "9.50€",
                 "description": "Queso rallado, salsa de queso y mezcla de reina pepiada",
-                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/745bf2171b39f4bfb6c366d777021bd3/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+                "img": "https://glovo.dhmedia.io/image/menus-glovo/products/063974913c03f70227e85d9e0bcefdc6a96b83bf378d93356203ddbd1e9c282b?t=W3siYXZpZiI6eyJxIjoibG93In19LHsicmVzaXplIjp7IndpZHRoIjoyNjAsImhlaWdodCI6MjYwfX1d"
             }
         ],
         "Bravas": [
@@ -55,7 +55,7 @@
                 "name": "Bomba Carnívora",
                 "price": "13.00€",
                 "description": "Patatas con queso rallado, huevo frito, carne mechada y salsa brava",
-                "img": ""
+                "img": "https://glovo.dhmedia.io/image/menus-glovo/products/76a6e769968aa53f395a3eb927ba2d4d81f6b89c902408727320e9900af5f19f?t=W3siYXZpZiI6eyJxIjoibG93In19LHsicmVzaXplIjp7IndpZHRoIjoyNjAsImhlaWdodCI6MjYwfX1d"
             },
             {
                 "name": "Bomba Pollo",
@@ -131,7 +131,7 @@
                 "name": "Bomba Mixta",
                 "price": "11.50€",
                 "description": "Ketchup, mayonesa, queso rallado, huevo frito y mezcla de mechada y Reina",
-                "img": ""
+                "img": "https://glovo.dhmedia.io/image/menus-glovo/products/c13e2b5c73d9f5b310684aa22f1fcfa95676d86aee2c00918afcd46fc4f5ccc9?t=W3siYXZpZiI6eyJxIjoibG93In19LHsicmVzaXplIjp7IndpZHRoIjoyNjAsImhlaWdodCI6MjYwfX1d"
             },
             {
                 "name": "Bomba Pollo",
@@ -270,12 +270,6 @@
                 "img": "https://tb-static.uber.com/prod/image-proc/processed_images/16cf656767c52fc5ad27f2a09c9dd06c/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
             },
             {
-                "name": "Bomba Pollo",
-                "price": "10.50€",
-                "description": "",
-                "img": ""
-            },
-            {
                 "name": "A Contracorriente",
                 "price": "9.50€",
                 "description": "",
@@ -416,6 +410,12 @@
             {
                 "name": "Domino",
                 "price": "9.50€",
+                "description": "",
+                "img": ""
+            },
+            {
+                "name": "Bomba Pollo",
+                "price": "10.50€",
                 "description": "",
                 "img": ""
             }
@@ -445,170 +445,404 @@
             }
         ]
     },
+
     "arepas": {
-        "":[
+            "": [
+                {
+                    "name": "Reina Pepiada",
+                    "price": "10.50€",
+                    "description": "Pollo mechado con aguacate, mayonesa y queso rallado. 100% venezolana.",
+                    "img": "https://tb-static.uber.com/prod/image-proc/processed_images/dd4daada70eecfaa458185fc23af56ad/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+                },
+                {
+                    "name": "Princesa",
+                    "price": "10.50€",
+                    "description": "Pollo mechado con tomate, perejil y mayonesa, con o sin queso.",
+                    "img": ""
+                },
+                {
+                    "name": "Rey",
+                    "price": "10.50€",
+                    "description": "Carne mechada con ensalada (repollo, zanahoria y mayonesa).",
+                    "img": "https://tb-static.uber.com/prod/image-proc/processed_images/ee9c2cf94f3e66c609e7a8f699cb43ea/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+                },
+                {
+                    "name": "Clásica",
+                    "price": "10.50€",
+                    "description": "Queso rallado, huevo frito y jamón dulce.",
+                    "img": "https://glovo.dhmedia.io/image/menus-glovo/products/d72304156aba58d7d30ee59da3650e1358a9a270158dc0883b2cf6bdeb10058b?t=W3siYXZpZiI6eyJxIjoibG93In19LHsicmVzaXplIjp7IndpZHRoIjoyNjAsImhlaWdodCI6MjYwfX1d"
+                },
+                {
+                    "name": "Príncipe",
+                    "price": "10.50€",
+                    "description": "Pollo mechado con aguacate triturado, mayonesa, ensalada y cebolla caramelizada.",
+                    "img": "https://tb-static.uber.com/prod/image-proc/processed_images/a4128e3f1466e63e15260321d77eabf5/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+                },
+                {
+                    "name": "Pelirroja",
+                    "price": "10.50€",
+                    "description": "Pollo guisado con queso rallado.",
+                    "img": "https://glovo.dhmedia.io/image/menus-glovo/products/ce3a81f9c632c98d88d674aca8d80549b4f01112c5e9349848076f2152b9bb82?t=W3siYXZpZiI6eyJxIjoibG93In19LHsicmVzaXplIjp7IndpZHRoIjoyNjAsImhlaWdodCI6MjYwfX1d"
+                },
+                {
+                    "name": "Carnívora",
+                    "price": "10.50€",
+                    "description": "Carne mechada guisada con pimientos, cebolla, cilantro y queso rallado.",
+                    "img": "https://tb-static.uber.com/prod/image-proc/processed_images/6b4b7f3bde903d12806d798cc3460a9c/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+                },
+                {
+                    "name": "Platanera",
+                    "price": "10.50€",
+                    "description": "Plátano maduro con queso amarillo rallado y bacon a la plancha.",
+                    "img": "https://tb-static.uber.com/prod/image-proc/processed_images/c32521ec3858d65200192da6e4b05ed8/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+                },
+                {
+                    "name": "Mery Veggie",
+                    "price": "10.50€",
+                    "description": "Arepa vegana con lechuga, tomate, aguacate, perejil y heura.",
+                    "img": "https://tb-static.uber.com/prod/image-proc/processed_images/727f2c52be45cbb84cf72a6755d42d4c/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+                },
+                {
+                    "name": "Vegetariana",
+                    "price": "10.50€",
+                    "description": "Queso rallado, huevo frito y aguacate molido (opcional tomate en rodajas).",
+                    "img": "https://tb-static.uber.com/prod/image-proc/processed_images/aa8610959f6f040889feedb1cc789174/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+                },
+                {
+                    "name": "Vegetata",
+                    "price": "10.50€",
+                    "description": "Plátano frito, mezcla de heura y queso rallado (opción de queso veggie).",
+                    "img": ""
+                },
+                {
+                    "name": "Pata Pata",
+                    "price": "10.50€",
+                    "description": "Aguacate en láminas, caraotas y queso rallado.",
+                    "img": ""
+                },
+                {
+                    "name": "Dominó",
+                    "price": "10.50€",
+                    "description": "Caraotas y queso blanco.",
+                    "img": "https://tb-static.uber.com/prod/image-proc/processed_images/b2cfb2995d9314aaa84c677868ad0e9f/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+                },
+                {
+                    "name": "Ibérica",
+                    "price": "10.50€",
+                    "description": "Queso rallado, huevo frito y jamón serrano (opcional tomate en rodajas).",
+                    "img": "https://tb-static.uber.com/prod/image-proc/processed_images/adb0e76e9fe2cbf5d8083c3c52ee3bb0/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+                },
+                {
+                    "name": "Bomba de Pollo",
+                    "price": "11.50€",
+                    "description": "Mezcla de ‘Reina’ con plátano frito, huevo frito y queso rallado.",
+                    "img": "https://tb-static.uber.com/prod/image-proc/processed_images/530e285dbd00999318c7d7dab99507e4/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+                },
+                {
+                    "name": "Caballero",
+                    "price": "12.50€",
+                    "description": "Carne mechada con plátano frito, huevo, caraotas y queso blanco (opción aguacate).",
+                    "img": "https://glovo.dhmedia.io/image/menus-glovo/products/09b8f899961119084342d4f700a70c1ef4e94bea92b40c779a1d1fa5b64f5304?t=W3siYXZpZiI6eyJxIjoibG93In19LHsicmVzaXplIjp7IndpZHRoIjoyNjAsImhlaWdodCI6MjYwfX1d"
+                },
+                {
+                    "name": "Pabellón",
+                    "price": "12.50€",
+                    "description": "Carne mechada con plátano frito, caraotas y queso blanco.",
+                    "img": ""
+                },
+                {
+                    "name": "Piolín",
+                    "price": "10.50€",
+                    "description": "Pollo con crema de queso, cebolla caramelizada y plátano frito (opción queso rallado).",
+                    "img": "https://glovo.dhmedia.io/image/menus-glovo/products/1747bd3f0ac815752328e27aa1945206682a0d86ce2c00341eb686e19509f591?t=W3siYXZpZiI6eyJxIjoibG93In19LHsicmVzaXplIjp7IndpZHRoIjoyNjAsImhlaWdodCI6MjYwfX1d"
+                },
+                {
+                    "name": "Silvestre",
+                    "price": "11.50€",
+                    "description": "Carne mechada con crema de queso, salsa brava, queso rallado, cebolla frita y huevo frito.",
+                    "img": "https://glovo.dhmedia.io/image/menus-glovo/products/8bb48811140e5e6ada5ae30bef22d5c0be450d113e6f9472be1021f926d5c8dd?t=W3siYXZpZiI6eyJxIjoibG93In19LHsicmVzaXplIjp7IndpZHRoIjoyNjAsImhlaWdodCI6MjYwfX1d"
+                },
+                {
+                    "name": "Bomba Carnívora",
+                    "price": "11.50€",
+                    "description": "Carne mechada, queso rallado, plátano frito y huevo frito.",
+                    "img": "https://glovo.dhmedia.io/image/menus-glovo/products/79e201add3ec9fbc28431101861157dc51825805bb1c81c930e3aa81d1e8ee07?t=W3siYXZpZiI6eyJxIjoibG93In19LHsicmVzaXplIjp7IndpZHRoIjoyNjAsImhlaWdodCI6MjYwfX1d"
+                },
+                {
+                    "name": "Bomba Pelirroja",
+                    "price": "11.50€",
+                    "description": "Pollo guisado con plátano frito, huevo frito y queso rallado.",
+                    "img": "https://glovo.dhmedia.io/image/menus-glovo/products/ce3a81f9c632c98d88d674aca8d80549b4f01112c5e9349848076f2152b9bb82?t=W3siYXZpZiI6eyJxIjoibG93In19LHsicmVzaXplIjp7IndpZHRoIjoyNjAsImhlaWdodCI6MjYwfX1d"
+                },
+                {
+                    "name": "A Contracorriente",
+                    "price": "10.50€",
+                    "description": "Queso de cabra, salmón ahumado y cebolla caramelizada. ¿Añadimos aguacate molido?",
+                    "img": "https://tb-static.uber.com/prod/image-proc/processed_images/8560cfac18f8a3e31fd10eba7f42d45f/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+                },
+                {
+                    "name": "Marinera",
+                    "price": "10.50€",
+                    "description": "Atún, cebolla picada, aguacate en cuadros, cilantro, queso rallado y un toque de mayonesa para darle cremosidad.",
+                    "img": ""
+                },
+                {
+                    "name": "Napolitana",
+                    "price": "10.50€",
+                    "description": "El sabor italiano con salsa boloñesa, un poco de queso parmesano y queso rallado.",
+                    "img": ""
+                },
+                {
+                    "name": "Tun Tun",
+                    "price": "10.50€",
+                    "description": "Arepa que lleva atún, tomate y cebolla picada, cilantro, con un toque de mayonesa para darle un toque cremoso.",
+                    "img": "https://glovo.dhmedia.io/image/menus-glovo/products/082a9e4278f1783add698d697eb57b3f2c212752be4e436af9cc4b007bce66b8?t=W3siYXZpZiI6eyJxIjoibG93In19LHsicmVzaXplIjp7IndpZHRoIjoyNjAsImhlaWdodCI6MjYwfX1d"
+                },
+                {
+                    "name": "Americana",
+                    "price": "10.50€",
+                    "description": "Un toque americano con bacon, huevo frito, queso rallado. ¡Mejórala si quieres con salsa bbq y cebolla crujiente!",
+                    "img": ""
+                },
+                {
+                    "name": "Torrija",
+                    "price": "10.50€",
+                    "description": "Una deliciosa combinación de salsa sriracha, bacon, huevo frito, lechuga, tomate y queso rallado.",
+                    "img": "https://glovo.dhmedia.io/image/menus-glovo/products/82d90b0f02e868496b687ed35cfd2df83663aa6d8e52cf5b400c70853b01682d?t=W3siYXZpZiI6eyJxIjoibG93In19LHsicmVzaXplIjp7IndpZHRoIjoyNjAsImhlaWdodCI6MjYwfX1d"
+                },
+                {
+                    "name": "Mexicana",
+                    "price": "10.50€",
+                    "description": "Mezcla de carne mechada y ají, con salsa agria y judías negras (caraotas).",
+                    "img": ""
+                }
+            ]
+    },
+
+    "postres": {
+        "Creps y Gofres": [
             {
-                "name": "Queso",
-                "price": "9.50€",
+                "name": "Nutella",
+                "price": "6.50€",
                 "description": "",
-                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/ecbcd0ec8d70bd1febf25a1eac737c6c/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/919dedfdac3e8d53850c2f5c8421bd73/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
             },
             {
-                "name": "Reina Pepiada",
-                "price": "9.50€",
+                "name": "Nutella y Plátano",
+                "price": "6.50€",
                 "description": "",
-                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/16cf656767c52fc5ad27f2a09c9dd06c/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/dce9f695698f9e869ba6281bfa471342/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
             },
             {
-                "name": "Bomba Pollo",
-                "price": "10.50€",
+                "name": "Dulce de Leche",
+                "price": "6.50€",
+                "description": "",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/0b35c761759386057050ae9db7cfa9da/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Dulce de Leche y Plátano",
+                "price": "6.50€",
                 "description": "",
                 "img": ""
             },
             {
-                "name": "A Contracorriente",
-                "price": "9.50€",
-                "description": "",
-                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/8e3a8b777c5da864d98835f88f12f4bc/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
-            },
-            {
-                "name": "Bomba Carnívora",
-                "price": "10.50€",
+                "name": "Miel y Canela",
+                "price": "6.50€",
                 "description": "",
                 "img": ""
             },
             {
-                "name": "Bomba Pelirroja",
-                "price": "10.50€",
+                "name": "Chocolate Blanco",
+                "price": "6.50€",
+                "description": "",
+                "img": "https://tb-static.uber.com/prod/image-proc/processed_images/f41a6fe894d05bf1458da1ae60aa032b/7f4ae9ca0446cbc23e71d8d395a98428.jpeg"
+            },
+            {
+                "name": "Kit Kat",
+                "price": "6.50€",
                 "description": "",
                 "img": ""
             },
             {
-                "name": "Silvestre",
-                "price": "10.50€",
+                "name": "Lotus",
+                "price": "6.50€",
                 "description": "",
                 "img": ""
-            },
+            }
+        ],
+
+        "Tequeños dulces": [
             {
-                "name": "Marinera",
-                "price": "9.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Clásica",
-                "price": "9.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Rey",
-                "price": "9.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Vegetariana",
-                "price": "9.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Vegetata",
-                "price": "9.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Mery Veggie",
-                "price": "9.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Mexicana",
-                "price": "10.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Iberica",
-                "price": "9.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Princesa",
-                "price": "9.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Príncipe",
-                "price": "9.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Platanera",
-                "price": "9.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Torija",
-                "price": "9.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Pabellón",
+                "name": "Tequeños",
                 "price": "11.50€",
+                "description": "Tequeños con Queso y Nutella",
+                "img": ""
+            }
+        ],
+
+        "Banofee": [
+            {
+                "name": "Banofee Grande",
+                "price": "6.50€",
                 "description": "",
                 "img": ""
             },
             {
-                "name": "Pata Pata",
-                "price": "9.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Napolitana",
-                "price": "9.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Americana",
-                "price": "9.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Piolin",
-                "price": "9.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Tun Tun",
-                "price": "9.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Carnivora",
-                "price": "9.50€",
-                "description": "",
-                "img": ""
-            },
-            {
-                "name": "Domino",
-                "price": "9.50€",
+                "name": "Banofee Pequeño",
+                "price": "4.50€",
                 "description": "",
                 "img": ""
             }
         ]
+    },
+
+    "bebidas": {
+
+        "Vinos": [
+            {
+                "name": "Clos Del Pinell Terra Alta - Tinto"
+            },
+            {
+                "name": "Laurentia Monsant - Tinto"
+            },
+            {
+                "name": "Beronía Crianza Rioja - Tinto"
+            },
+            {
+                "name": "Clos Del Pinell Terra Alta - Blanco/Seco"
+            },
+            {
+                "name": "Embrunas Verdejo - Blanco/Dulce"
+            }
+        ],
+
+        "Cervezas": [
+            {
+                "name": "Ipa Laguinta (California)",
+                "price": "4.50€"
+            },
+            {
+                "name": "Alcázar",
+                "price": "3.20€"
+            },
+            {
+                "name": "Amstel Sin Alcohol Tostada",
+                "price": "2.50€"
+            },
+            {
+                "name": "Águila",
+                "price": "2.50€"
+            },
+            {
+                "name": "Águila sin Filtrar",
+                "price": "3.25€"
+            },
+            {
+                "name": "18/70 'La Rubia'",
+                "price": "3.25€"
+            },
+            {
+                "name": "Desperados",
+                "price": "3.50€"
+            },
+            {
+                "name": "Sol (Similar a Corona)",
+                "price": "3.50€"
+            },
+            {
+                "name": "Cerveza sin Gluten",
+                "price": "2.80€"
+            },
+            {
+                "name": "Caña (Águila o Radler)",
+                "price": "2.20€"
+            },
+            {
+                "name": "Jarrita (Águila o Radler)",
+                "price": "2.70€"
+            },
+            {
+                "name": "Jarra (Águila o Radler)",
+                "price": "3.20"
+            }
+        ],
+
+        "Refresco": [
+            {
+                "name": "Refresco",
+                "price": "2.20€"
+            }
+        ],
+
+        "Zumo": [
+            {
+                "name": "Piña",
+                "price": "2.20€"
+            },
+            {
+                "name": "Naranja",
+                "price": "2.20€"
+            },
+            {
+                "name": "Melocotón",
+                "price": "2.20€"
+            }
+        ],
+
+        "Papelon con Limon": [
+            {
+                "name": "Papelon con Limon",
+                "price": "3.60€"
+            }
+        ],
+
+        "Cocteleria": [
+            {
+                "name": "Maracuyito",
+                "price": "7.50€",
+                "description": "Cocktail típico de venezuela Recomendado! Zumo de naranja + ron + maracuyá"
+            },
+            {
+                "name": "Piña Colada", 
+                "price": "7.50€",
+                "description": "Ron + coco + malibú + zumo de piña"
+            },
+            {
+                "name": "Rosana",
+                "price": "7.50",
+                "description": "Ron + cerveza + zumo ed limón"
+            },
+            {
+                "name": "Blue Lagoon",
+                "price": "7.50€",
+                "description": "Fanta limón + vodka + blue curazao + maracuyá"
+            },
+            {
+                "name": "Tinto de Verano",
+                "price": "7.50€",
+                "description": "Con naranja o con limón. Un toque de vermouth negro + vino tinto + fanta"
+            },
+            {
+                "name": "Calimocho",
+                "price": "6.50",
+                "description": "Vino tinto + coca cola"
+            },
+            {
+                "name": "Paperon",
+                "price": "7.50",
+                "description": "Agua + ron + panela + limón exprimido. Recomendado! Super fresh y natural"
+            },
+            {
+                "name": "Daikiri",
+                "price": "7.50",
+                "description": "Pregúntanos por los sabores que tenemos disponibles para ti"
+            },
+            {
+                "name": "Michelada",
+                "price": "6.00",
+                "description": "Zumo de limón exprimido, cerveza y sal en la capa"
+            }
+        ]
     }
+    
 }

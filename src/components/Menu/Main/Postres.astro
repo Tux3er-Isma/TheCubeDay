@@ -1,37 +1,31 @@
 ---
-//Imports
-//Props
+// Imports
+// Props
 const { title } = Astro.props;
 
-//Json
+// Json
 import data from "../../../data/menu.json";
 
-//Components
+// Components
 import Card from "./Card.astro";
 
-//Img
+// Img
 import aperitivosImg from "../../../assets/Menu/Icons/aperitivos.png";
 
 let domData: any;
-let dataArr;
-let domImg;
-let aperitivos = data.aperitivos;
-let arepas = data.arepas;
-let postres = data.postres;
+let dataArr: string[];
+let domImg: { src: string };
+let aperitivos = data.postres;
 
-if (title == "Aperitivos") {
-    domData = aperitivos;
-    domImg = aperitivosImg;
-    // console.log(Object.keys(domData).map((i) => i));
-    dataArr = Object.keys(domData);
-    // console.log(Object.keys(domData).length);
-} else if (title == "Arepas") {
-    domData = arepas;
-    dataArr = Object.keys(domData); 
-} else if (title == "Postres"){
-    domData = postres;
-    dataArr = Object.keys(domData);
-}
+domData = aperitivos;
+domImg = aperitivosImg;
+dataArr = Object.keys(domData);
+
+let categoryArr: string[] = []; // Definimos el tipo explícitamente
+Object.keys(domData).map((i) => categoryArr.push(i));
+categoryArr.map((category) =>{
+    console.log(category)
+})
 ---
 
 <section class="section">
@@ -41,11 +35,11 @@ if (title == "Aperitivos") {
             alt={title}
             class="section__title-container__icon"
         />
-        <h1 class="section__title-container__title">{title}</h1>
+        <h1 class="section__title-container__title">Postres</h1>
     </header>
     <main class="section__main">
         {
-            Object.keys(domData || {}).map((category) => (
+            categoryArr.map((category) => (
                 <div class="section__main__food-container">
                     <h1 class="section__main__food-container__title">
                         {category}
@@ -53,7 +47,7 @@ if (title == "Aperitivos") {
                     <div class="section__main__food-container__card-container">
                         {domData[category].map((i: any) => (
                             <Card
-                                section={title}
+                                section={category}
                                 title={i.name}
                                 description={i.description}
                                 price={i.price}
