@@ -1,5 +1,5 @@
 import { supabase } from '../../lib/supabase';
-import * as nodemailer from "nodemailer" // Asegúrate de tener tu configuración de Supabase en este archivo.
+import nodemailer from "nodemailer" // Asegúrate de tener tu configuración de Supabase en este archivo.
 import type { APIRoute } from 'astro';
 export const prerender = false;
 
